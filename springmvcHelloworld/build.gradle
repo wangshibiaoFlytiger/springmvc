@@ -1,0 +1,72 @@
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+ext {
+    //模块名
+    moduleName = "springmvcHelloworld";
+    version "${parent.version}"
+
+}
+dependencies {
+    compile(
+            lib.'spring-web',
+            lib.'spring-webmvc',
+            lib.'servlet-api',
+            lib."spring-aspects",
+            lib.'jsmth-web',
+
+            lib."commons-fileupload",
+
+            lib.'standard',
+            lib.'jstl',
+            lib.'xml-apis',
+            'org.springframework.security:spring-security-taglibs:4.0.4.RELEASE',
+
+
+
+            'org.apache.shiro:shiro-core:1.2.4',
+            'org.apache.shiro:shiro-all:1.2.4',
+//            'net.sf.ehcache:ehcache-core:2.4.6',
+
+            'org.apache.poi:poi:3.9',
+
+            lib.'dom4j',
+            'jaxen:jaxen:1.1.6',
+    )
+
+
+    testCompile (
+            lib.'spring-test'
+    )
+}
+
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.bluepapa32:gradle-watch-plugin:0.1.3'
+    }
+}
+
+apply plugin: 'watch'
+
+watch {
+    java {
+        files files('src/main/java')
+        tasks 'compileJava'
+    }
+    resources {
+        files fileTree(dir: 'src/main/resources', include: '**/*.xml')
+        tasks 'processResources'
+    }
+}
+
+jettyRun{
+    httpPort 8080
+    contextPath ""
+    scanIntervalSeconds 1
+    reload "automatic"
+}

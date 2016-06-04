@@ -1,0 +1,84 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : cn.com.open.resourceexplorer:springmvcHelloworld : springmvcHelloworld-1.0-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/out/artifacts/springmvcHelloworld</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$" />
+    </properties>
+    <root id="archive" name="springmvcHelloworld-1.0-SNAPSHOT.war">
+      <element id="javaee-facet-resources" facet="springmvcHelloworld/web/Web Gradle : springmvcHelloworld-1.0-SNAPSHOT.war" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="springmvcHelloworld" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/build/springmvcHelloworld/resources/main" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils-core:1.8.3" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.5" />
+          <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.2.4" />
+          <element id="library" level="project" name="Gradle: org.slf4j:slf4j-log4j12:1.7.5" />
+          <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Gradle: com.google.zxing:core:3.2.1" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Gradle: net.oschina.jsmth:jsmth-web:3.2.16.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Gradle: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Gradle: xmlpull:xmlpull:1.1.3.1" />
+          <element id="library" level="project" name="Gradle: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Gradle: xml-apis:xml-apis:1.4.01" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-taglibs:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-core:1.2.4" />
+          <element id="library" level="project" name="Gradle: xpp3:xpp3_min:1.1.4c" />
+          <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-all:1.2.4" />
+          <element id="library" level="project" name="Gradle: org.apache.poi:poi:3.9" />
+          <element id="library" level="project" name="Gradle: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Gradle: jaxen:jaxen:1.1.6" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: net.oschina.jsmth:jsmth-common:3.2.16.RELEASE" />
+          <element id="library" level="project" name="Gradle: com.google.inject:guice:3.0" />
+          <element id="library" level="project" name="Gradle: com.google.inject.extensions:guice-multibindings:3.0" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Gradle: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Gradle: org.sonatype.sisu.inject:cglib:2.2.1-v20090111" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: asm:asm:3.1" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Gradle: com.google.guava:guava:17.0-rc2" />
+          <element id="library" level="project" name="Gradle: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Gradle: com.thoughtworks.xstream:xstream:1.4.8" />
+          <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-acl:4.0.4.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Gradle: org.apache.shiro:shiro-guice:1.2.4" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.5" />
+          <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-orm:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-test:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-net:commons-net:3.3" />
+          <element id="library" level="project" name="Gradle: org.perf4j:perf4j:0.9.16" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.12" />
+          <element id="library" level="project" name="Gradle: com.belerweb:pinyin4j:2.5.0" />
+          <element id="library" level="project" name="Gradle: javax.persistence:persistence-api:1.0" />
+          <element id="library" level="project" name="Gradle: commons-httpclient:commons-httpclient:3.1" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.8" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/springmvcHelloworld/exploded/springmvcHelloworld-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

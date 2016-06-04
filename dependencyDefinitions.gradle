@@ -1,0 +1,455 @@
+/**
+ * 依赖包的定义。
+ *
+ * 这种定义方式的优点是在顶级项目目录下引入，在子项目中也可以直接用了。
+ *
+ */
+
+// 一些会重复出现的jar包的版本号
+//
+ext.versions = [
+        spring        : '4.2.5.RELEASE',
+        springdata    : '1.7.1.RELEASE',
+        hibernate     : '4.3.8.Final',
+        security      : '3.2.1.RELEASE',
+        jackson       : '1.9.13',
+        logback       : '1.0.13',
+        slf4j         : '1.7.5',
+        httpcomponents: '4.3.1',
+        lucene        : '4.7.0',
+        querydsl      : '3.6.0',
+        hsqldb        : '2.2.9',
+        querydsl      : '3.7.0',
+        jodd          : '3.6.7',
+        springside    : '4.2.2.GA',
+        jackson       : '2.3.3',
+        shiro         : '1.2.3',
+        jsmth         : '3.2.16.RELEASE',
+        aws           : '1.10.58',
+        aliyun        : '2.1.7',
+        azure         : '4.0.0',
+        resteasy      : '3.0.7.Final',
+]
+
+// 各种可能会用到的jar包
+//
+ext.lib = [
+
+
+        mavenAntTasks                                 : 'org.apache.maven:maven-ant-tasks:2.1.1',
+
+//        "querydsl-core":"com.mysema.querydsl:querydsl-core:${versions.querydsl}",
+//        "querydsl-apt":"com.mysema.querydsl:querydsl-apt:${versions.querydsl}",
+//        "querydsl-jpa":"com.mysema.querydsl:querydsl-jpa:${versions.querydsl}",
+        "querydsl-sql"                                : "com.mysema.querydsl:querydsl-sql:${versions.querydsl}",
+
+        "javax.el-api"                                : "javax.el:javax.el-api:2.2.4",
+
+        "guava"                                       : 'com.google.guava:guava:19.0',
+        "standard"                                    : 'taglibs:standard:1.1.2',
+        "jstl"                                        : "javax.servlet:jstl:1.2",
+        "servlet-api"                                 : "javax.servlet:servlet-api:2.5",
+        "tomcat-servlet-api"                          : "tomcat:servlet-api:5.5.23",
+//        "servlet-api": "org.apache.tomcat:servlet-api:6.0.39",
+        "jsp-api"                                     : "javax.servlet:jsp-api:2.0",
+        "validation"                                  : "javax.validation:validation-api:1.1.0.Final",
+
+        "ebean"                                       : "org.avaje.ebeanorm:avaje-ebeanorm:3.2.4",
+        "persistence-api"                             : "javax.persistence:persistence-api:1.0",
+
+        "openjpa"                                     : "org.apache.openjpa:openjpa-persistence:2.3.0",
+
+        "aspectjweaver"                               : "org.aspectj:aspectjweaver:1.7.4",
+        "ognl"                                        : 'ognl:ognl:3.1.2',
+
+// hibernate
+        "hibernate-core"                              : "org.hibernate:hibernate-core:${versions.hibernate}",
+        "hibernate-jpa"                               : 'org.hibernate:hibernate-jpa:2.1-1.0.1',
+        "hibernate-entitymanager"                     : "org.hibernate:hibernate-entitymanager:${versions.hibernate}",
+        "hibernate-engine"                            : 'org.hibernate:hibernate-search-engine:5.5.1.Final',
+        "hibernate-validator"                         : 'org.hibernate:hibernate-validator:5.0.2.Final',
+
+// database
+        "mysql"                                       : "mysql:mysql-connector-java:5.1.38",
+        "sqlserver-jdbc"                              : "com.microsoft.sqlserver:sqlserver.jdbc:4.3",
+//"sql_server"                   : "com.microsoft.mssql:jdbc:4",
+        "sql_server2005"                              : "com.microsoft.sqlserver:jdbc:2005",
+        "sql_server2008"                              : "com.microsoft.sqlserver:jdbc:2008",
+        "sql_server2012"                              : "com.microsoft.sqlserver:jdbc:2012",
+
+        "hsqldb"                                      : "org.hsqldb:hsqldb:${versions.hsqldb}",
+        'redis.clients'                               : 'redis.clients:jedis:2.1.0',
+
+        'metamodel-core'                              : 'org.eobjects.metamodel:MetaModel-core:3.4.10',
+        'metamodel-jdbc'                              : 'org.eobjects.metamodel:MetaModel-jdbc:3.4.10',
+
+        'db-meta'                                     : 'com.cgs.dbMeta:db-meta:0.0.1-Release',
+
+        "sqlite-jdbc"                                 : "org.xerial:sqlite-jdbc:3.8.9",
+//        "p6spy": "p6spy:p6spy:2.0.1",
+        "p6spy"                                       : "p6spy:p6spy:1.3",
+
+        "zxing"                                       : 'com.google.zxing:core:3.2.1',
+        "perf4j"                                      : 'org.perf4j:perf4j:0.9.16',
+
+        //dubbo
+        "druid"                                       : "com.alibaba:druid:0.2.23",
+        "netty"                                       : "org.jboss.netty:netty:3.2.5.Final",
+        "dubbo"                                       : "com.alibaba:dubbo:2.5.3",
+        "zookeeper"                                   : "org.apache.zookeeper:zookeeper:3.4.5",
+        "zkclient"                                    : "com.101tec:zkclient:0.3",
+        "resteasy-jaxrs"                              : "org.jboss.resteasy:resteasy-jaxrs:${versions.resteasy}",
+        "resteasy-jaxrs"                              : "org.jboss.resteasy:resteasy-client:${versions.resteasy}",
+        "resteasy-jackson-provider"                   : "org.jboss.resteasy:resteasy-jackson-provider:${versions.resteasy}",
+        "resteasy-jaxb-provider"                      : "org.jboss.resteasy:resteasy-jaxb-provider:${versions.resteasy}",
+        "resteasy-netty"                              : "org.jboss.resteasy:resteasy-netty:${versions.resteasy}",
+        "resteasy-jdk-http"                           : "org.jboss.resteasy:resteasy-jdk-http:${versions.resteasy}",
+        "tomcat-embed-core"                           : "org.apache.tomcat.embed:tomcat-embed-core:8.0.11",
+        "tomcat-embed-logging-juli"                   : "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.0.11",
+        "kryo"                                        : "com.esotericsoftware.kryo:kryo:2.24.0",
+        "kryo-serializers"                            : "de.javakaffee:kryo-serializers:0.26",
+        "fst"                                         : "de.ruedigermoeller:fst:1.55",
+        "jackson-core"                                : "com.fasterxml.jackson.core:jackson-core:${versions.jackson}",
+        "jackson-databind"                            : "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}",
+        "jackson-module-jaxb-annotations"             : "com.fasterxml.jackson.module:jackson-module-jaxb-annotations:${versions.jackson}",
+
+// spring
+//
+        "spring-core"                                 : "org.springframework:spring-context:4.0.2.RELEASE",
+        "spring-beans"                                : "org.springframework:spring-beans:${versions.spring}",
+        "spring-jdbc"                                 : "org.springframework:spring-jdbc:${versions.spring}",
+        "spring-tx"                                   : "org.springframework:spring-tx:${versions.spring}",
+        "spring-context"                              : "org.springframework:spring-context:${versions.spring}",
+        "spring-context-support"                      : "org.springframework:spring-context-support:${versions.spring}",
+
+        "spring-agent"                                : "org.springframework:spring-agent:2.5.6",
+
+        "spring-data-jpa"                             : "org.springframework.data:spring-data-jpa:${versions.springdata}",
+        "spring-redis"                                : "org.springframework.data:spring-data-redis:1.1.1.RELEASE",
+
+        "spring-orm"                                  : "org.springframework:spring-orm:${versions.spring}",
+        "spring-oxm"                                  : "org.springframework:spring-oxm:${versions.spring}",
+        "spring-web"                                  : "org.springframework:spring-web:${versions.spring}",
+        "spring-webmvc"                               : "org.springframework:spring-webmvc:${versions.spring}",
+        "spring-jms"                                  : "org.springframework:spring-jms:${versions.spring}",
+        "spring-aspects"                              : "org.springframework:spring-aspects:${versions.spring}",
+        "spring-test"                                 : "org.springframework:spring-test:${versions.spring}",
+
+
+        "spring-shell"                                : "org.springframework.shell:spring-shell:1.1.0.M1",
+// Spring Security
+//
+        "spring-security-core"                        : "org.springframework.security:spring-security-core:${versions.security}",
+        "spring-security-web"                         : "org.springframework.security:spring-security-web:${versions.security}",
+        "spring-security-config"                      : "org.springframework.security:spring-security-config:${versions.security}",
+// "spring-security-taglibs": "org.springframework.security:spring-security-taglibs:${versions.security}",
+
+
+        "springside-core"                             : "org.springside:springside-core:${versions.springside}",
+
+
+        "shiro-spring"                                : "org.apache.shiro:shiro-spring:${versions.shiro}",
+        "shiro-ehcache"                               : "org.apache.shiro:shiro-ehcache:${versions.shiro}",
+
+// 忽略common log，使用slf4j代替
+//
+        "logback-classic"                             : "ch.qos.logback:logback-classic:${versions.logback}",
+        "logback-core"                                : "ch.qos.logback:logback-core:${versions.logback}",
+        "jcl-over-slf4j"                              : "org.slf4j:jcl-over-slf4j:${versions.slf4j}",
+        "log4j-over-slf4j"                            : "org.slf4j:log4j-over-slf4j:${versions.slf4j}",
+        "slf4j-api"                                   : "org.slf4j:slf4j-api:${versions.slf4j}",
+        "slf4j-log4j12"                               : "org.slf4j:slf4j-log4j12:${versions.slf4j}",
+        "log4j"                                       : "log4j:log4j:1.2.17",
+        "log4jlogger"                                 : "slide:log4jlogger:2.0",
+        "mockito-core"                                : "org.mockito:mockito-core:2.0.5-beta",
+        "mockito-all"                                 : "org.mockito:mockito-all:1.9.5",
+// JSON
+//
+        "jackson-core-asl"                            : "org.codehaus.jackson:jackson-core-asl:${versions.jackson}",
+        "jackson-mapper-asl"                          : "org.codehaus.jackson:jackson-mapper-asl:${versions.jackson}",
+        "gson"                                        : "com.google.code.gson:gson:2.2.4",
+        "json"                                        : "org.json:org.json:2.0",
+        "apache-xerces"                               : "apache-xerces:xercesImpl:2.9.1",
+        "dom4j"                                       : "dom4j:dom4j:1.6.1",
+// Apache
+//
+        "jgrapht-core"                                : "org.jgrapht:jgrapht-core:0.9.1",
+        "jgrapht-dist"                                : "org.jgrapht:jgrapht-dist:0.9.1",
+        "jgrapht-ext"                                 : "org.jgrapht:jgrapht-ext:0.9.1",
+
+        "jscience"                                    : "org.jscience:jscience:4.3.1",
+
+
+        "commons-dbcp"                                : "commons-dbcp:commons-dbcp:1.4",
+        "commons-pool"                                : "commons-pool:commons-pool:1.6",
+        "commons-collections"                         : "commons-collections:commons-collections:3.2.2",
+//        "commons-collections": "commons-collections:commons-collections:2.1",
+        "commons-beanutils-core"                      : "commons-beanutils:commons-beanutils-core:1.8.3",
+        "commons-configuration"                       : "commons-configuration:commons-configuration:1.10",
+//"commons-lang3"                : "org.apache.commons:commons-lang3:3.1",
+        "commons-lang"                                : "commons-lang:commons-lang:2.6",
+        "commons-io"                                  : "commons-io:commons-io:2.4",
+        "commons-fileupload"                          : "commons-fileupload:commons-fileupload:1.3.1",
+        "commons-net"                                 : "commons-net:commons-net:3.3",
+        "commons-httpclient"                          : "commons-httpclient:commons-httpclient:3.1",
+        "commons-dbutils"                             : "commons-dbutils:commons-dbutils:1.6",
+        "commons-digester3"                           : "org.apache.commons:commons-digester3:3.2",
+        "apache-collections"                          : "apache-collections:commons-collections:3.1",
+        "apache-bval"                                 : "org.apache.bval:bval-jsr303:0.5",
+
+
+        "commons-codec"                               : "commons-codec:commons-codec:1.10",
+        "common-annotations"                          : "com.github.sebhoss:common-annotations:3.0.0",
+        "commons-logging"                             : "commons-logging:commons-logging:1.1.3",
+
+        "jodd-core"                                   : "org.jodd:jodd-core:${versions.jodd}",
+        "jodd-core"                                   : "org.jodd:jodd-core:${versions.jodd}",
+        "jodd-bean"                                   : "org.jodd:jodd-bean:${versions.jodd}",
+        "jodd-props"                                  : "org.jodd:jodd-props:${versions.jodd}",
+        "jodd-email"                                  : "org.jodd:jodd-email:${versions.jodd}",
+        "jodd-upload"                                 : "org.jodd:jodd-upload:${versions.jodd}",
+        "jodd-servlets"                               : "org.jodd:jodd-servlets:${versions.jodd}",
+        "jodd-http"                                   : "org.jodd:jodd-http:${versions.jodd}",
+        "jodd-madvoc"                                 : "org.jodd:jodd-madvoc:${versions.jodd}",
+        "jodd-petite"                                 : "org.jodd:jodd-petite:${versions.jodd}",
+        "jodd-lagarto"                                : "org.jodd:jodd-lagarto:${versions.jodd}",
+        "jodd-proxetta"                               : "org.jodd:jodd-proxetta:${versions.jodd}",
+        "jodd-vtor"                                   : "org.jodd:jodd-vtor:${versions.jodd}",
+        "jodd-dboom"                                  : "org.jodd:jodd-dboom:${versions.jodd}",
+        "jodd-dboom"                                  : "org.jodd:jodd-dboom:${versions.jodd}",
+
+// "commons-io": "org.apache.commons:commons-io:1.3.2",
+
+        "httpcomponents-httpclient"                   : "org.apache.httpcomponents:httpclient:${versions.httpcomponents}",
+        "httpcomponents-httpmime"                     : "org.apache.httpcomponents:httpmime:${versions.httpcomponents}",
+
+        "guava"                                       : "com.google.guava:guava:17.0-rc2",
+
+        "velocity"                                    : "org.apache.velocity:velocity:1.7",
+        "freemarker"                                  : "org.freemarker:freemarker:2.3.18",
+
+
+
+        "mina-core"                                   : "org.apache.mina:mina-core:2.0.9",
+        "mina-transport-apr"                          : "org.apache.mina:mina-transport-apr:2.0.9",
+        "mina-filter-compression"                     : "org.apache.mina:mina-filter-compression:2.0.9",
+
+        "ant"                                         : "org.apache.ant:ant:1.9.2",
+
+        "pinyin4j"                                    : "com.belerweb:pinyin4j:2.5.0",
+
+
+        "thrift-lib"                                  : "org.apache.thrift:libthrift:0.8.0",
+        "hessian"                                     : "com.caucho:hessian:4.0.38",
+
+// "poi": "org.apache.poi:poi:3.9",
+// "xbean-spring": "org.apache.xbean:xbean-spring:3.9",
+
+// ActiveMQ
+//
+// "activemq-all": "org.apache.activemq:activemq-all:5.2.0",
+        "activemq-core"                               : "org.apache.activemq:activemq-core:5.5.0",
+        "activemq-pool"                               : "org.apache.activemq:activemq-pool:5.7.0",
+        "rabbitmq"                                    : "com.rabbitmq:amqp-client:2.8.2",
+
+// Mail
+//
+        "mail"                                        : "javax.mail:mail:1.4",
+
+// cache
+//
+        "dangamemcached"                              : "com.danga:java-memcached:2.6.3",
+        "spymemcached"                                : "net.spy:spymemcached:2.9.1",
+        "ehcache"                                     : "net.sf.ehcache:ehcache:2.8.1",
+
+// Other
+
+        "im4java"                                     : "org.im4java:im4java:1.4.0",
+        "jmagick"                                     : "jmagick:jmagick:6.6.9",
+        "qrcode"                                      : "com.swetake:qrcode:1.0.0",
+        "simpleimage"                                 : "com.alibaba:simpleimage:1.2.0",
+        "thumbnailator"                               : "net.coobird:thumbnailator:0.4.7",
+
+
+
+
+        "jsoup"                                       : "org.jsoup:jsoup:1.7.3",
+//
+// "guava": "com.google.guava:guava:12.0",
+        "htmlparser"                                  : "org.htmlparser:htmlparser:2.1",
+// "mvel2": "org.mvel:mvel2:2.0.9",
+        "joda-time"                                   : "joda-time:joda-time:2.3",
+        "xstream"                                     : "com.thoughtworks.xstream:xstream:1.4.8",
+
+        "junit"                                       : "junit:junit:4.12",
+        "mockito"                                     : "org.mockito:mockito-all:1.9.5",
+
+//lucene
+        "lucene-queryparser"                          : "org.apache.lucene:lucene-queryparser:${versions.lucene}",
+        "lucene-highlighter"                          : "org.apache.lucene:lucene-highlighter:${versions.lucene}",
+        "lucene-memory"                               : "org.apache.lucene:lucene-memory:${versions.lucene}",
+        "lucene-analyzers-common"                     : "org.apache.lucene:lucene-analyzers-common:${versions.lucene}",
+        "lucene-core"                                 : "org.apache.lucene:lucene-core:${versions.lucene}",
+
+//solr
+        "solr-core"                                   : "org.apache.solr:solr-core:${versions.lucene}",
+        "solr-analysis-extras"                        : "org.apache.solr:solr-analysis-extras:${versions.lucene}",
+        "solr-cell"                                   : "org.apache.solr:solr-cell:${versions.lucene}",
+        "solr-clustering"                             : "org.apache.solr:solr-clustering:${versions.lucene}",
+        "solr-dataimporthandler"                      : "org.apache.solr:solr-dataimporthandler:${versions.lucene}",
+        "solr-dataimporthandler-extras"               : "org.apache.solr:solr-dataimporthandler-extras:${versions.lucene}",
+        "solr-langid"                                 : "org.apache.solr:solr-langid:${versions.lucene}",
+        "solr-solrj"                                  : "org.apache.solr:solr-solrj:${versions.lucene}",
+        "solr-test-framework"                         : "org.apache.solr:solr-test-framework:${versions.lucene}",
+        "solr-uima"                                   : "org.apache.solr:solr-uima:${versions.lucene}",
+        "solr-velocity"                               : "org.apache.solr:solr-velocity:${versions.lucene}",
+
+        "querydsl-apt"                                : "com.mysema.querydsl:querydsl-apt:${versions.querydsl}",
+        "querydsl-jdo"                                : "com.mysema.querydsl:querydsl-jdo:${versions.querydsl}",
+        "querydsl-sql"                                : "com.mysema.querydsl:querydsl-sql:${versions.querydsl}",
+        "querydsl-sql-codegen"                        : "com.mysema.querydsl:querydsl-sql-codegen:${versions.querydsl}",
+        "querydsl-codegen"                            : "com.mysema.querydsl:querydsl-codegen:${versions.querydsl}",
+        "querydsl-jpa-codegen"                        : "com.mysema.querydsl:querydsl-jpa-codegen:${versions.querydsl}",
+        "querydsl-sql-spring"                         : "com.mysema.querydsl:querydsl-sql-spring:${versions.querydsl}",
+        "querydsl-maven-plugin"                       : "com.mysema.querydsl:querydsl-maven-plugin:${versions.querydsl}",
+        "querydsl-lucene"                             : "com.querydsl:querydsl-lucene:3.1.1",
+
+        "querydsl-plugin"                             : "com.mysema.maven:apt-maven-plugin:1.1.3",
+
+        "thoughtworks-paranamer"                      : "com.thoughtworks.paranamer:paranamer:2.3",
+
+        "maven-plugin-api"                            : "org.apache.maven:maven-plugin-api:3.3.9",
+
+        "ECharts"                                     : "com.github.abel533:ECharts:2.2.6",
+
+
+        "geronimo-servlet"                            : "org.apache.geronimo.specs:geronimo-servlet_2.5_spec:1.2",
+        "geronimo-jsp"                                : "org.apache.geronimo.specs:geronimo-jsp_2.1_spec:1.0.1",
+        "xerces"                                      : "xerces:xercesImpl:2.6.2",
+        "picocontainer"                               : "org.picocontainer:picocontainer:2.9",
+        "javaee-api"                                  : "javax:javaee-api:6.0",
+        "mvel2"                                       : "org.mvel:mvel2:2.0.15",
+
+        "jsmth-common"                                : "net.oschina.jsmth:jsmth-common:${versions.jsmth}",
+        "jsmth-faker"                                 : "net.oschina.jsmth:jsmth-faker:${versions.jsmth}",
+        "jsmth-data"                                  : "net.oschina.jsmth:jsmth-data:${versions.jsmth}",
+        "jsmth-web"                                   : "net.oschina.jsmth:jsmth-web:${versions.jsmth}",
+        "jsmth-msg"                                   : "net.oschina.jsmth:jsmth-msg:${versions.jsmth}",
+        "jsmth-net"                                   : "net.oschina.jsmth:jsmth-net:${versions.jsmth}",
+//        "jsmth-izayoi-commons"           : "net.oschina.jsmth:jsmth-izayoi-commons:${versions.jsmth}",
+        "jsmth-izayoi-core"                           : "net.oschina.jsmth:jsmth-izayoi-core:${versions.jsmth}",
+        "jsmth-izayoi-adapter-springmvc"              : "net.oschina.jsmth:jsmth-izayoi-adapter-springmvc:${versions.jsmth}",
+
+        "jsmth-cortile-core"                          : "net.oschina.jsmth:jsmth-cortile-core:0.2.0",
+        "jsmth-cortile-adapter-springmvc"             : "net.oschina.jsmth:jsmth-cortile-adapter-springmvc:0.2.0",
+        "jsmth-izayoi-commons"                        : "net.oschina.jsmth:jsmth-izayoi-commons:0.1.3",
+
+
+        "aws-java-sdk-support"                        : "com.amazonaws:aws-java-sdk-support:${versions.aws}",
+        "aws-java-sdk-simpledb"                       : "com.amazonaws:aws-java-sdk-simpledb:${versions.aws}",
+        "aws-java-sdk-simpleworkflow"                 : "com.amazonaws:aws-java-sdk-simpleworkflow:${versions.aws}",
+        "aws-java-sdk-storagegateway"                 : "com.amazonaws:aws-java-sdk-storagegateway:${versions.aws}",
+        "aws-java-sdk-route53"                        : "com.amazonaws:aws-java-sdk-route53:${versions.aws}",
+        "aws-java-sdk-s3"                             : "com.amazonaws:aws-java-sdk-s3:${versions.aws}",
+        "aws-java-sdk-importexport"                   : "com.amazonaws:aws-java-sdk-importexport:${versions.aws}",
+        "aws-java-sdk-sts"                            : "com.amazonaws:aws-java-sdk-sts:${versions.aws}",
+        "aws-java-sdk-sqs"                            : "com.amazonaws:aws-java-sdk-sqs:${versions.aws}",
+        "aws-java-sdk-rds"                            : "com.amazonaws:aws-java-sdk-rds:${versions.aws}",
+        "aws-java-sdk-elasticbeanstalk"               : "com.amazonaws:aws-java-sdk-elasticbeanstalk:${versions.aws}",
+        "aws-java-sdk-glacier"                        : "com.amazonaws:aws-java-sdk-glacier:${versions.aws}",
+        "aws-java-sdk-iam"                            : "com.amazonaws:aws-java-sdk-iam:${versions.aws}",
+        "aws-java-sdk-datapipeline"                   : "com.amazonaws:aws-java-sdk-datapipeline:${versions.aws}",
+        "aws-java-sdk-elasticloadbalancing"           : "com.amazonaws:aws-java-sdk-elasticloadbalancing:${versions.aws}",
+        "aws-java-sdk-emr"                            : "com.amazonaws:aws-java-sdk-emr:${versions.aws}",
+        "aws-java-sdk-elasticache"                    : "com.amazonaws:aws-java-sdk-elasticache:${versions.aws}",
+        "aws-java-sdk-elastictranscoder"              : "com.amazonaws:aws-java-sdk-elastictranscoder:${versions.aws}",
+        "aws-java-sdk-ec2"                            : "com.amazonaws:aws-java-sdk-ec2:${versions.aws}",
+        "aws-java-sdk-dynamodb"                       : "com.amazonaws:aws-java-sdk-dynamodb:${versions.aws}",
+        "aws-java-sdk-sns"                            : "com.amazonaws:aws-java-sdk-sns:${versions.aws}",
+        "aws-java-sdk-cloudtrail"                     : "com.amazonaws:aws-java-sdk-cloudtrail:${versions.aws}",
+        "aws-java-sdk-cloudwatch"                     : "com.amazonaws:aws-java-sdk-cloudwatch:${versions.aws}",
+        "aws-java-sdk-logs"                           : "com.amazonaws:aws-java-sdk-logs:${versions.aws}",
+        "aws-java-sdk-events"                         : "com.amazonaws:aws-java-sdk-events:${versions.aws}",
+        "aws-java-sdk-cognitoidentity"                : "com.amazonaws:aws-java-sdk-cognitoidentity:${versions.aws}",
+        "aws-java-sdk-cognitosync"                    : "com.amazonaws:aws-java-sdk-cognitosync:${versions.aws}",
+        "aws-java-sdk-directconnect"                  : "com.amazonaws:aws-java-sdk-directconnect:${versions.aws}",
+        "aws-java-sdk-cloudformation"                 : "com.amazonaws:aws-java-sdk-cloudformation:${versions.aws}",
+        "aws-java-sdk-cloudfront"                     : "com.amazonaws:aws-java-sdk-cloudfront:${versions.aws}",
+        "aws-java-sdk-kinesis"                        : "com.amazonaws:aws-java-sdk-kinesis:${versions.aws}",
+        "aws-java-sdk-opsworks"                       : "com.amazonaws:aws-java-sdk-opsworks:${versions.aws}",
+        "aws-java-sdk-ses"                            : "com.amazonaws:aws-java-sdk-ses:${versions.aws}",
+        "aws-java-sdk-autoscaling"                    : "com.amazonaws:aws-java-sdk-autoscaling:${versions.aws}",
+        "aws-java-sdk-cloudsearch"                    : "com.amazonaws:aws-java-sdk-cloudsearch:${versions.aws}",
+        "aws-java-sdk-cloudwatchmetrics"              : "com.amazonaws:aws-java-sdk-cloudwatchmetrics:${versions.aws}",
+        "aws-java-sdk-swf-libraries"                  : "com.amazonaws:aws-java-sdk-swf-libraries:${versions.aws}",
+        "aws-java-sdk-codedeploy"                     : "com.amazonaws:aws-java-sdk-codedeploy:${versions.aws}",
+        "aws-java-sdk-codepipeline"                   : "com.amazonaws:aws-java-sdk-codepipeline:${versions.aws}",
+        "aws-java-sdk-kms"                            : "com.amazonaws:aws-java-sdk-kms:${versions.aws}",
+        "aws-java-sdk-config"                         : "com.amazonaws:aws-java-sdk-config:${versions.aws}",
+        "aws-java-sdk-lambda"                         : "com.amazonaws:aws-java-sdk-lambda:${versions.aws}",
+        "aws-java-sdk-ecs"                            : "com.amazonaws:aws-java-sdk-ecs:${versions.aws}",
+        "aws-java-sdk-ecr"                            : "com.amazonaws:aws-java-sdk-ecr:${versions.aws}",
+        "aws-java-sdk-ssm"                            : "com.amazonaws:aws-java-sdk-ssm:${versions.aws}",
+        "aws-java-sdk-cloudhsm"                       : "com.amazonaws:aws-java-sdk-cloudhsm:${versions.aws}",
+        "aws-java-sdk-workspaces"                     : "com.amazonaws:aws-java-sdk-workspaces:${versions.aws}",
+        "aws-java-sdk-machinelearning"                : "com.amazonaws:aws-java-sdk-machinelearning:${versions.aws}",
+        "aws-java-sdk-directoryaws-java-sdk-directory": "com.amazonaws:aws-java-sdk-directory:${versions.aws}",
+        "aws-java-sdk-efs"                            : "com.amazonaws:aws-java-sdk-efs:${versions.aws}",
+        "aws-java-sdk-codecommit"                     : "com.amazonaws:aws-java-sdk-codecommit:${versions.aws}",
+        "aws-java-sdk-devicefarm"                     : "com.amazonaws:aws-java-sdk-devicefarm:${versions.aws}",
+        "aws-java-sdk-elasticsearch"                  : "com.amazonaws:aws-java-sdk-elasticsearch:${versions.aws}",
+        "aws-java-sdk-waf"                            : "com.amazonaws:aws-java-sdk-waf:${versions.aws}",
+        "aws-java-sdk-marketplacecommerceanalytics"   : "com.amazonaws:aws-java-sdk-marketplacecommerceanalytics:${versions.aws}",
+        "aws-java-sdk-inspector"                      : "com.amazonaws:aws-java-sdk-inspector:${versions.aws}",
+        "aws-java-sdk-iot"                            : "com.amazonaws:aws-java-sdk-iot:${versions.aws}",
+        "aws-java-sdk-api-gateway"                    : "com.amazonaws:aws-java-sdk-api-gateway:${versions.aws}",
+        "aws-java-sdk-acm"                            : "com.amazonaws:aws-java-sdk-acm:${versions.aws}",
+        "aws-java-sdk-gamelift"                       : "com.amazonaws:aws-java-sdk-gamelift:${versions.aws}",
+        "aws-java-sdk-core"                           : "com.amazonaws:aws-java-sdk-core:${versions.aws}",
+
+        "aliyun-sdk-oss"                              : "com.aliyun.oss:aliyun-sdk-oss:2.2.1",
+
+        "aliyun-java-sdk-core"                        : "com.aliyun:aliyun-java-sdk-core:2.1.7",
+        "aliyun-java-sdk-sts"                         : "com.aliyun:aliyun-java-sdk-sts:2.1.6",
+        "aliyun-java-sdk-yundun"                      : "com.aliyun:aliyun-java-sdk-yundun:2.1.3",
+        "aliyun-java-sdk-slb"                         : "com.aliyun:aliyun-java-sdk-slb:2.0.0-rc1",
+        "aliyun-java-sdk-oms"                         : "com.aliyun:aliyun-java-sdk-oms:2.0.1",
+        "aliyun-java-sdk-ecs"                         : "com.aliyun:aliyun-java-sdk-ecs:2.1.0",
+        "aliyun-java-sdk-rds"                         : "com.aliyun:aliyun-java-sdk-rds:2.0.4",
+        "aliyun-java-sdk-bss"                         : "com.aliyun:aliyun-java-sdk-bss:2.0.0-rc1",
+        "aliyun-java-sdk-ocs"                         : "com.aliyun:aliyun-java-sdk-ocs:2.0.0-rc1",
+        "aliyun-java-sdk-batchcompute"                : "com.aliyun:aliyun-java-sdk-batchcompute:3.0.5",
+        "aliyun-java-sdk-ossadmin"                    : "com.aliyun:aliyun-java-sdk-ossadmin:2.0.0",
+
+//        "aliyun-java-sdk-cdn"                             : "com.aliyun:aliyun-java-sdk-cdn:2.2.0",
+//        "aliyun-java-sdk-emr"                             : "com.aliyun:aliyun-java-sdk-emr:2.2.0",
+//        "aliyun-java-sdk-push"                             : "com.aliyun:aliyun-java-sdk-push:2.1.0",
+//        "aliyun-java-sdk-cf"                             : "com.aliyun:aliyun-java-sdk-cf:2.1.0",
+//        "aliyun-java-sdk-highddos"                             : "com.aliyun:aliyun-java-sdk-highddos:2.1.0",
+//        "aliyun-java-sdk-mts"                             : "com.aliyun:aliyun-java-sdk-mts:2.0.8",
+//        "aliyun-java-sdk-ram"                             : "com.aliyun:aliyun-java-sdk-ram:2.0.7",
+//        "aliyun-java-sdk-ubsms"                             : "com.aliyun:aliyun-java-sdk-ubsms:2.0.4",
+//        "aliyun-java-sdk-cs"                             : "com.aliyun:aliyun-java-sdk-cs:2.0.2",
+//        "aliyun-java-sdk-drds"                             : "com.aliyun:aliyun-java-sdk-drds:2.0.1",
+//        "aliyun-java-sdk-ros"                             : "com.aliyun:aliyun-java-sdk-ros:2.0.1",
+//        "aliyun-java-sdk-ess"                             : "com.aliyun:aliyun-java-sdk-ess:2.0.1",
+//        "aliyun-java-sdk-iot"                             : "com.aliyun:aliyun-java-sdk-iot:2.0.1",
+//        "aliyun-java-sdk-dm"                             : "com.aliyun:aliyun-java-sdk-dm:2.0.0-rc2",
+//        "":"::",
+
+        "azure-storage"                               : "com.microsoft.azure:azure-storage:${versions.azure}",
+
+        "xml-apis"                                    : 'xml-apis:xml-apis:1.4.01'
+
+        ,
+//        "":"::",
+//        "":"::",
+//        "":"::",
+//        "":"::",
+//        "":"::",
+//        "":"::",
+
+//        "":"::",
+//        "":"::",
+
+]

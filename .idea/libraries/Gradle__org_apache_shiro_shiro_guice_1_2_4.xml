@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.shiro:shiro-guice:1.2.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.shiro/shiro-guice/1.2.4/b776652c86ed315a73bccde431a8fc43fcca9468/shiro-guice-1.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.shiro/shiro-guice/1.2.4/ad678699cbfa6b469ef33c5c049477570798f1d3/shiro-guice-1.2.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

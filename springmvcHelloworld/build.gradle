@@ -13,6 +13,9 @@ dependencies {
             lib.'spring-web',
             lib.'spring-webmvc',
             lib.'servlet-api',
+            lib.'commons-dbutils',
+            lib.'mysql',
+
             lib."spring-aspects",
             lib.'jsmth-web',
 

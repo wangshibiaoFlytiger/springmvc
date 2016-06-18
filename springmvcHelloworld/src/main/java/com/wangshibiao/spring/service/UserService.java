@@ -35,4 +35,9 @@ public class UserService {
         List list = getEntityDAO().getDbUtilsTemplate().find("select * from user");
         return list;
     }
+
+    public List findUserListV2(){
+        List list = getEntityDAO().getDbUtilsTemplate().find(User.class, "select * from user");
+        return list;
+    }
 }

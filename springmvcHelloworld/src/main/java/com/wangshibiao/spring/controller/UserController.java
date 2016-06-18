@@ -62,8 +62,20 @@ public class UserController {
             listRender.add(map);
         }
 
+        response.setCharacterEncoding("UTF-8");
         try {
             response.getWriter().write(new Gson().toJson(listRender));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @RequestMapping(value = "/user/userListV2.json", method = RequestMethod.GET)
+    public void findUserListV2(HttpServletRequest request, HttpServletResponse response){
+        List<User> list = userService.findUserListV2();
+        response.setCharacterEncoding("UTF-8");
+        try {
+            response.getWriter().write(new Gson().toJson(list));
         } catch (IOException e) {
             e.printStackTrace();
         }

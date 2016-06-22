@@ -439,9 +439,10 @@ ext.lib = [
 
         "azure-storage"                               : "com.microsoft.azure:azure-storage:${versions.azure}",
 
-        "xml-apis"                                    : 'xml-apis:xml-apis:1.4.01'
+        "xml-apis"                                    : 'xml-apis:xml-apis:1.4.01',
 
-        ,
+        "mybatis"                                     :"org.mybatis:mybatis:3.4.0",
+        "mybatis-spring"                             :"org.mybatis:mybatis-spring:1.3.0",
 //        "":"::",
 //        "":"::",
 //        "":"::",

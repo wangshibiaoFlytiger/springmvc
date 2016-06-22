@@ -29,7 +29,7 @@ public class UserController {
     @RequestMapping(value = "/user/getUser.json", method = RequestMethod.GET)
     public void getUser(HttpServletRequest request, HttpServletResponse response,
                         String username){
-        User user = userService.findByUsername(username);
+        User user = userService.getUserByUserName(username);
         try {
             response.getWriter().write(new Gson().toJson(user));
         } catch (IOException e) {
@@ -47,37 +47,5 @@ public class UserController {
         modelAndView.addObject("data", map);
         modelAndView.addObject("test", "good");
         return modelAndView;
-    }
-
-    @RequestMapping(value = "/user/userList.json", method = RequestMethod.GET)
-    public void findUserList(HttpServletRequest request, HttpServletResponse response){
-        List<Map> list = userService.findUserList();
-        List listRender = new ArrayList<>();
-
-        for (Map user : list){
-            Map map = new HashMap<>();
-            map.put("username", user.get("username"));
-            map.put("name", user.get("name"));
-
-            listRender.add(map);
-        }
-
-        response.setCharacterEncoding("UTF-8");
-        try {
-            response.getWriter().write(new Gson().toJson(listRender));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @RequestMapping(value = "/user/userListV2.json", method = RequestMethod.GET)
-    public void findUserListV2(HttpServletRequest request, HttpServletResponse response){
-        List<User> list = userService.findUserListV2();
-        response.setCharacterEncoding("UTF-8");
-        try {
-            response.getWriter().write(new Gson().toJson(list));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

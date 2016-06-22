@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <mappers>
-        <mapper resource="/spring/user-mapper.xml" />
+        <mapper resource="/mybatis/mapper/user-mapper.xml" />
     </mappers>
 </configuration>

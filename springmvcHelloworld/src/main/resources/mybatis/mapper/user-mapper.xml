@@ -11,7 +11,7 @@
     </resultMap>
 
     <cache />
-    <select id="getUserByUserName" parameterType="string" resultMap="UserMap" useCache="true">
+    <select id="getUserByUserName" parameterType="string" resultMap="UserMap">
         SELECT *
         FROM user  WHERE username = #{username}
     </select>

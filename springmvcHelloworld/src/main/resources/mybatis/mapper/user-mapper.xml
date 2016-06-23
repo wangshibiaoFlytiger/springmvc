@@ -10,7 +10,8 @@
         <result property="password" column="password" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="getUserByUserName" parameterType="string" resultMap="UserMap">
+    <cache />
+    <select id="getUserByUserName" parameterType="string" resultMap="UserMap" useCache="true">
         SELECT *
         FROM user  WHERE username = #{username}
     </select>

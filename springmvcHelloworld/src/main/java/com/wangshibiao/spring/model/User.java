@@ -1,9 +1,11 @@
 package com.wangshibiao.spring.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Wang Shibiao on 2016/6/5.
  */
-public class User {
+public class User implements Serializable {
     Integer id;
     String username;
     String name;

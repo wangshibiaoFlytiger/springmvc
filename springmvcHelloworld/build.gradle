@@ -17,6 +17,7 @@ dependencies {
             lib.'mysql',
             lib."mybatis",
             lib."mybatis-spring",
+            lib."HikariCP",
 
             lib."spring-aspects",
             lib.'jsmth-web',

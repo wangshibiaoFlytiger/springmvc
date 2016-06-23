@@ -443,6 +443,7 @@ ext.lib = [
 
         "mybatis"                                     :"org.mybatis:mybatis:3.4.0",
         "mybatis-spring"                             :"org.mybatis:mybatis-spring:1.3.0",
+        "HikariCP"                                    :"com.zaxxer:HikariCP:2.4.6",
 //        "":"::",
 //        "":"::",
 //        "":"::",

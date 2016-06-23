@@ -18,6 +18,7 @@ dependencies {
             lib."mybatis",
             lib."mybatis-spring",
             lib."HikariCP",
+            lib."slf4j-log4j12",
 
             lib."spring-aspects",
             lib.'jsmth-web',

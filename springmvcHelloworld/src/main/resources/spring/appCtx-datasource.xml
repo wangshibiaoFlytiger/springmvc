@@ -11,10 +11,25 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd ">
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <bean id="dataSourceHikari" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="${app.jdbc.driver}"/>
-        <property name="url" value="${app.jdbc.url}"/>
+        <property name="jdbcUrl" value="${app.jdbc.url}"/>
         <property name="username" value="${app.jdbc.username}"/>
         <property name="password" value="${app.jdbc.password}"/>
-    </bean>
+
+        <property name="maximumPoolSize" value="100"/>
+        <property name="minimumIdle" value="10"/>
+        <property name="connectionTestQuery" value="select 1"/>
+        <!-- Default settings -->
+        <!-- 控制自动提交行为 default：true -->
+        <property name="autoCommit" value="true"/>
+        <!--连接池获取的连接是否只读 default:false-->
+        <property name="readOnly" value="false"/>
+        <!--最大连接超时时间 default：30秒-->
+        <property name="connectionTimeout" value="30000"/>
+        <!--最大空闲超时时间 default：10分钟   -->
+        <property name="idleTimeout" value="600000"/>
+        <!--连接池中一个连接的最大生命周期 default：30分钟-->
+        <property name="maxLifetime" value="1800000 "/>
+     </bean>
 </beans>

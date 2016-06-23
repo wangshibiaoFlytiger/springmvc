@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.service.UserService;
 import org.apache.shiro.crypto.hash.Hash;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,12 +25,15 @@ import java.util.Map;
  */
 @Controller
 public class UserController {
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Resource
     UserService userService;
 
     @RequestMapping(value = "/user/getUser.json", method = RequestMethod.GET)
     public void getUser(HttpServletRequest request, HttpServletResponse response,
                         String username){
+        logger.debug("Enter /user/getUser.json");
         User user = userService.getUserByUserName(username);
         try {
             response.getWriter().write(new Gson().toJson(user));

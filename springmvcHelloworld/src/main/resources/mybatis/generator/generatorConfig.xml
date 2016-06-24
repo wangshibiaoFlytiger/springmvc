@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\Wang Shibiao\.gradle\caches\modules-2\files-2.1\mysql\mysql-connector-java\5.1.38\dbbd7cd309ce167ec8367de4e41c63c2c8593cc5\mysql-connector-java-5.1.38.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://101.201.144.141/cms?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.wangshibiao.spring.model" targetProject="F:\github\springmvc\springmvcHelloworld\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="F:\github\springmvc\springmvcHelloworld\src\main\resources\mybatis">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.wangshibiao.spring.dao" targetProject="F:\github\springmvc\springmvcHelloworld\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table schema="DB2ADMIN" tableName="user" domainObjectName="User" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

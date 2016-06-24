@@ -1,4 +1,4 @@
-package com.wangshibiao.spring.service;
+package com.wangshibiao.spring.dao;
 
 import com.wangshibiao.spring.BaseTest;
 import com.wangshibiao.spring.model.User;
@@ -9,12 +9,13 @@ import javax.annotation.Resource;
 /**
  * Created by Wang Shibiao on 2016/6/24.
  */
-public class UserServiceTest extends BaseTest{
+public class UserDaoTest extends BaseTest{
     @Resource
-    UserService userService;
+    UserMapper userMapper;
 
     @Test
-    public void getUserByUserName(){
-        User user = userService.getUserByUserName("admin");
+    public void test(){
+        User user = userMapper.selectByPrimaryKey(27);
     }
+
 }

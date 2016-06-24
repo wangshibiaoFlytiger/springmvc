@@ -3,7 +3,6 @@ package com.wangshibiao.spring.controller;
 import com.google.gson.Gson;
 import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.service.UserService;
-import org.apache.shiro.crypto.hash.Hash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,9 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +32,8 @@ public class UserController {
                         String username){
         logger.debug("Enter /user/getUser.json");
         User user = userService.getUserByUserName(username);
+
+        response.setCharacterEncoding("UTF-8");
         try {
             response.getWriter().write(new Gson().toJson(user));
         } catch (IOException e) {

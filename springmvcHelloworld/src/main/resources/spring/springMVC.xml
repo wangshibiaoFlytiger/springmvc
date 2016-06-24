@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd ">
 
-    <context:component-scan base-package="com.wangshibiao.spring"/>
+    <context:component-scan base-package="com.wangshibiao.spring.**.controller"/>
     <mvc:annotation-driven></mvc:annotation-driven>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -1,5 +1,6 @@
 package com.wangshibiao.spring.service;
 
+import com.wangshibiao.spring.BaseTest;
 import com.wangshibiao.spring.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,10 +13,7 @@ import javax.annotation.Resource;
 /**
  * Created by Wang Shibiao on 2016/6/24.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/mainCtx.xml")
-@Transactional
-public class UserServiceTest {
+public class UserServiceTest extends BaseTest{
     @Resource
     UserService userService;
 

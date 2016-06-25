@@ -14,13 +14,11 @@ import java.util.List;
 public class UserDaoTest extends BaseTest{
     @Resource
     UserMapper userMapper;
-    @Resource
-    OrgMapper orgMapper;
 
     @Test
     public void test(){
         User user = userMapper.selectByPrimaryKey(27);
-        List orgList = orgMapper.selectByExample(null);
+        List userList = userMapper.selectByExample(null);
     }
 
 

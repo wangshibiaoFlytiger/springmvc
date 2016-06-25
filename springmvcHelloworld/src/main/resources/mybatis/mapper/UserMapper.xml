@@ -27,6 +27,8 @@
     <result column="add_time" property="add_time" jdbcType="TIMESTAMP" />
     <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
     <result column="user_from" property="user_from" jdbcType="VARCHAR" />
+
+    <association property="org" javaType="com.wangshibiao.spring.model.Org" select="com.wangshibiao.spring.dao.OrgMapper.selectByPrimaryKey" column="org_id"></association>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <!--

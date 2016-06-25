@@ -105,6 +105,9 @@
     id, role, org_id, username, password, name, sex, icon, birthday, phone, email, qq, 
     address, postcode, comment, status, add_time, update_time, user_from
   </sql>
+  <select id="selectByOrgId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT * from user where org_id = #{orgId};
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.wangshibiao.spring.model.UserExample" >
     <!--
       WARNING - @mbggenerated

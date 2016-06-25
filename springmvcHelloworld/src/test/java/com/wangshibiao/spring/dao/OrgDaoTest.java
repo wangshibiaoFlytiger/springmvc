@@ -17,6 +17,12 @@ public class OrgDaoTest extends BaseTest {
 
     @Test
     public void test(){
-        List<Org> orgList = orgMapper.selectByOrgStatusCascadeUser(1);
+        //查询机构列表，通过级联查询获取相关用户信息
+        List<Org> orgListCascade = orgMapper.selectByOrgStatusCascadeUser(1);
+        //查询机构列表，通过懒加载获取相关用户信息
+        List orgListLazyLoad = orgMapper.selectByExample(null);
+        //查询机构，通过懒加载获取相关用户信息
+        Org org = orgMapper.selectByPrimaryKey(1);
+        List userList = org.getUserList();
     }
 }

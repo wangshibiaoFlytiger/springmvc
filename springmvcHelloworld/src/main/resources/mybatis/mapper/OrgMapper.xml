@@ -19,6 +19,8 @@
     <result column="comment" property="comment" jdbcType="VARCHAR" />
     <result column="add_time" property="add_time" jdbcType="TIMESTAMP" />
     <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
+
+    <collection property="userList" javaType="java.util.List" select="com.wangshibiao.spring.dao.UserMapper.selectByOrgId" ofType="com.wangshibiao.spring.model.User" column="id"></collection>
   </resultMap>
   <resultMap id="CascadeResultMap" type="com.wangshibiao.spring.model.Org" >
     <!--

@@ -41,6 +41,18 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/user/addUser.json")
+    public void addUser(HttpServletRequest request, HttpServletResponse response){
+        userService.addUser();
+
+        response.setCharacterEncoding("UTF-8");
+        try {
+            response.getWriter().write(new Gson().toJson(null));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @RequestMapping(value = "/user/testpage.html", method = RequestMethod.GET)
     public ModelAndView page1(){
         Map map = new HashMap<>();

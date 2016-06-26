@@ -35,4 +35,9 @@ public class UserService {
         //出现异常，则该语句之前的数据库操作会做回滚
         Integer a = 6/0;
     }
+
+    @Transactional
+    public void addUserModel(User user){
+        userMapper.insert(user);
+    }
 }

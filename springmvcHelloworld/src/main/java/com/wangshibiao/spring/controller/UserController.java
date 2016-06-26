@@ -6,6 +6,7 @@ import com.wangshibiao.spring.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,8 +42,19 @@ public class UserController {
         }
     }
 
+    @Transactional
     @RequestMapping(value = "/user/addUser.json")
     public void addUser(HttpServletRequest request, HttpServletResponse response){
+        User user1 = new User();
+        user1.setName("name062602");
+        user1.setPassword("pass11");
+        userService.addUserModel(user1);
+
+        User user2 = new User();
+        user2.setName("name062603");
+        user2.setPassword("pass11");
+        userService.addUserModel(user2);
+
         userService.addUser();
 
         response.setCharacterEncoding("UTF-8");

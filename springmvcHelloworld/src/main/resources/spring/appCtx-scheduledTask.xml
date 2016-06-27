@@ -6,7 +6,5 @@
        http://www.springframework.org/schema/task
        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
-    <task:scheduled-tasks>
-        <task:scheduled ref="taskJob" method="job1" fixed-delay="2000"/>
-    </task:scheduled-tasks>
+    <task:annotation-driven/>
 </beans>

@@ -1,6 +1,7 @@
 package com.wangshibiao.spring.controller;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.service.UserService;
 import org.slf4j.Logger;
@@ -36,7 +37,7 @@ public class UserController {
 
         response.setCharacterEncoding("UTF-8");
         try {
-            response.getWriter().write(new Gson().toJson(user));
+            response.getWriter().write(new Gson().toJson(user, new TypeToken<User>(){}.getType()));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://soapService.spring.wangshibiao.com/" xmlns:tns="http://soapService.spring.wangshibiao.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getUser" type="tns:getUser"/>
+
+  <xs:element name="getUserResponse" type="tns:getUserResponse"/>
+
+  <xs:element name="method1" type="tns:method1"/>
+
+  <xs:element name="method1Response" type="tns:method1Response"/>
+
+  <xs:complexType name="getUser">
+    <xs:sequence>
+      <xs:element name="username" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUserResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:user" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:complexContent>
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element name="add_time" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="address" type="xs:string" minOccurs="0"/>
+          <xs:element name="birthday" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="comment" type="xs:string" minOccurs="0"/>
+          <xs:element name="email" type="xs:string" minOccurs="0"/>
+          <xs:element name="icon" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="org" type="tns:org" minOccurs="0"/>
+          <xs:element name="org_id" type="xs:int" minOccurs="0"/>
+          <xs:element name="password" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="postcode" type="xs:int" minOccurs="0"/>
+          <xs:element name="qq" type="xs:string" minOccurs="0"/>
+          <xs:element name="role" type="xs:string" minOccurs="0"/>
+          <xs:element name="sex" type="xs:int" minOccurs="0"/>
+          <xs:element name="status" type="xs:int" minOccurs="0"/>
+          <xs:element name="update_time" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="user_from" type="xs:string" minOccurs="0"/>
+          <xs:element name="username" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="baseModel">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="org">
+    <xs:complexContent>
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element name="add_time" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="address" type="xs:string" minOccurs="0"/>
+          <xs:element name="comment" type="xs:string" minOccurs="0"/>
+          <xs:element name="contacter" type="xs:string" minOccurs="0"/>
+          <xs:element name="email" type="xs:string" minOccurs="0"/>
+          <xs:element name="id" type="xs:int" minOccurs="0"/>
+          <xs:element name="logo" type="xs:string" minOccurs="0"/>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+          <xs:element name="org_code" type="xs:string" minOccurs="0"/>
+          <xs:element name="phone" type="xs:string" minOccurs="0"/>
+          <xs:element name="status" type="xs:int" minOccurs="0"/>
+          <xs:element name="update_time" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="userList" type="tns:user" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="method1">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="method1Response">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

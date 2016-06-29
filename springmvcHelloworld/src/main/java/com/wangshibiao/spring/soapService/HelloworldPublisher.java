@@ -1,4 +1,4 @@
-package com.wangshibiao.spring.soapServer;
+package com.wangshibiao.spring.soapService;
 
 import javax.xml.ws.Endpoint;
 
@@ -7,6 +7,6 @@ import javax.xml.ws.Endpoint;
  */
 public class HelloworldPublisher {
     public static void main(String[] args){
-        Endpoint.publish("http://localhost:8081/ws/helloworld", new HelloworldImpl());
+        Endpoint.publish("http://localhost:8081/ws/helloworld", new Helloworld());
     }
 }

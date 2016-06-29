@@ -5,8 +5,10 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
 
 
 /**
@@ -15,8 +17,10 @@ import javax.xml.ws.Action;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "Helloworld", targetNamespace = "http://soapServer.spring.wangshibiao.com/")
-@SOAPBinding(style = SOAPBinding.Style.RPC)
+@WebService(name = "Helloworld", targetNamespace = "http://soapService.spring.wangshibiao.com/")
+@XmlSeeAlso({
+    ObjectFactory.class
+})
 public interface Helloworld {
 
 
@@ -27,10 +31,27 @@ public interface Helloworld {
      *     returns java.lang.String
      */
     @WebMethod
-    @WebResult(partName = "return")
-    @Action(input = "http://soapServer.spring.wangshibiao.com/Helloworld/method1Request", output = "http://soapServer.spring.wangshibiao.com/Helloworld/method1Response")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "method1", targetNamespace = "http://soapService.spring.wangshibiao.com/", className = "com.wangshibiao.spring.soapClient.Method1")
+    @ResponseWrapper(localName = "method1Response", targetNamespace = "http://soapService.spring.wangshibiao.com/", className = "com.wangshibiao.spring.soapClient.Method1Response")
+    @Action(input = "http://soapService.spring.wangshibiao.com/Helloworld/method1Request", output = "http://soapService.spring.wangshibiao.com/Helloworld/method1Response")
     public String method1(
-        @WebParam(name = "arg0", partName = "arg0")
+        @WebParam(name = "arg0", targetNamespace = "")
         String arg0);
+
+    /**
+     * 
+     * @param username
+     * @return
+     *     returns com.wangshibiao.spring.soapClient.User
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getUser", targetNamespace = "http://soapService.spring.wangshibiao.com/", className = "com.wangshibiao.spring.soapClient.GetUser")
+    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://soapService.spring.wangshibiao.com/", className = "com.wangshibiao.spring.soapClient.GetUserResponse")
+    @Action(input = "http://soapService.spring.wangshibiao.com/Helloworld/getUserRequest", output = "http://soapService.spring.wangshibiao.com/Helloworld/getUserResponse")
+    public User getUser(
+        @WebParam(name = "username", targetNamespace = "")
+        String username);
 
 }

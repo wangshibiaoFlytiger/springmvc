@@ -1,11 +1,15 @@
 package com.wangshibiao.spring.soapClient;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
 import com.wangshibiao.spring.BaseTest;
+import com.wangshibiao.spring.model.*;
+import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.oemsSoapClient.OemsSmsService;
 import com.wangshibiao.spring.oemsSoapClient.OemsSmsServiceSoap;
 import com.wangshibiao.spring.oemsSoapClient.SmsSendSoapHeader;
 import org.junit.Test;
 
+import javax.annotation.Resource;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Holder;
 import javax.xml.ws.Service;
@@ -32,9 +36,10 @@ public class SoapClientTest extends BaseTest{
      */
     @Test
     public void soapClientWsimport(){
-        HelloworldImplService helloworldImplService = new HelloworldImplService();
-        Helloworld helloworld = helloworldImplService.getHelloworldImplPort();
-        System.out.println(helloworld.method1("good"));
+        HelloworldService helloworldService = new HelloworldService();
+        Helloworld helloworld = helloworldService.getHelloworldPort();
+        String ret = helloworld.method1("para1");
+        com.wangshibiao.spring.soapClient.User user = helloworld.getUser("admin");
     }
 
     /**

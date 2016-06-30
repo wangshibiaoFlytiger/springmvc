@@ -170,6 +170,7 @@ ext.lib = [
         "jackson-mapper-asl"                          : "org.codehaus.jackson:jackson-mapper-asl:${versions.jackson}",
         "gson"                                        : "com.google.code.gson:gson:2.2.4",
         "json"                                        : "org.json:org.json:2.0",
+        "fastjson"                                   :"com.alibaba:fastjson:1.2.13",
         "apache-xerces"                               : "apache-xerces:xercesImpl:2.9.1",
         "dom4j"                                       : "dom4j:dom4j:1.6.1",
 // Apache

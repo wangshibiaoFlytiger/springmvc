@@ -16,7 +16,10 @@
     <!-- This is needed if you want to use the @Transactional annotation -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <context:component-scan base-package="com.wangshibiao.spring.**.controller"/>
+    <context:component-scan base-package="com.wangshibiao.spring">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+    </context:component-scan>
     <mvc:annotation-driven></mvc:annotation-driven>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -29,5 +32,4 @@
         <property name="maxUploadSize" value="10000000"></property>
         <property name="defaultEncoding" value="UTF-8"></property>
     </bean>
-
 </beans>

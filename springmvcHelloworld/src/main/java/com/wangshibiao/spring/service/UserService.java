@@ -37,7 +37,25 @@ public class UserService {
     }
 
     @Transactional
-    public void addUserModel(User user){
-        userMapper.insert(user);
+    public Integer addUserModel(User user){
+        return userMapper.insert(user);
+    }
+
+    public User findById(Integer id){
+        User user = userMapper.selectByPrimaryKey(id);
+        return user;
+    }
+
+    public Integer delById(Integer id){
+        return userMapper.deleteByPrimaryKey(id);
+    }
+
+    public Integer updateUser(User user){
+        return userMapper.updateByPrimaryKey(user);
+    }
+
+    public List<User> findAll(){
+        List<User> userList = userMapper.selectByExample(null);
+        return userList;
     }
 }

@@ -20,6 +20,7 @@ dependencies {
             lib."HikariCP",
             lib."slf4j-log4j12",
             lib."log4jdbc-log4j2",
+            lib."fastjson",
 
             lib."spring-aspects",
             lib.'jsmth-web',

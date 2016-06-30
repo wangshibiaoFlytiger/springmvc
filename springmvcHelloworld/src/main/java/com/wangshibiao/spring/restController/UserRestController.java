@@ -65,7 +65,6 @@ public class UserRestController {
         return jsonObject;
     }
 
-    //TODO: 没有调试通过
     @CrossOrigin("*")
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public String getAllUser(){

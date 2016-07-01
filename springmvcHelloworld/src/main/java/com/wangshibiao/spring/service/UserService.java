@@ -1,5 +1,6 @@
 package com.wangshibiao.spring.service;
 
+import com.github.pagehelper.PageHelper;
 import com.wangshibiao.spring.dao.UserMapper;
 import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.model.UserExample;
@@ -55,6 +56,12 @@ public class UserService {
     }
 
     public List<User> findAll(){
+        List<User> userList = userMapper.selectByExample(null);
+        return userList;
+    }
+
+    public List<User> findByPage(Integer pageNum, Integer pageSize){
+        PageHelper.startPage(pageNum, pageSize);
         List<User> userList = userMapper.selectByExample(null);
         return userList;
     }

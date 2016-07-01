@@ -445,6 +445,8 @@ ext.lib = [
         //ORM
         "mybatis"                                     :"org.mybatis:mybatis:3.4.0",
         "mybatis-spring"                             :"org.mybatis:mybatis-spring:1.3.0",
+        //mybatis分页
+        "pagehelper"                                  :"com.github.pagehelper:pagehelper:4.1.6",
         //数据源
         "HikariCP"                                    :"com.zaxxer:HikariCP:2.4.6",
 

@@ -1,5 +1,7 @@
 package com.wangshibiao.spring.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.wangshibiao.spring.model.User;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
@@ -17,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,6 +46,23 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/user/userList.json", method = RequestMethod.GET)
+    public String getUserList(HttpServletRequest request, HttpServletResponse response,
+                              Integer pageNum,
+                              Integer pageSize){
+        List<User> userList = userService.findByPage(pageNum, pageSize);
+
+        //置空User对象的懒加载属性，否则json转换失败
+        for (Iterator<User> iterator = userList.iterator(); iterator.hasNext();){
+            User user = iterator.next();
+            user.setOrg(null);
+        }
+
+        String userListJson = JSON.toJSONString(userList);
+        return userListJson;
     }
 
     @Transactional

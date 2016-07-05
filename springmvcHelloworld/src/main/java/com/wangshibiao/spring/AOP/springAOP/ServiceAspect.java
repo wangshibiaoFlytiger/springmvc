@@ -11,6 +11,10 @@ import java.util.Arrays;
 /**
  * Created by Wang Shibiao on 2016/7/4.
  */
+
+/**
+ * 通过spring AOP创建aspect
+ */
 @Component
 @Aspect
 public class ServiceAspect {

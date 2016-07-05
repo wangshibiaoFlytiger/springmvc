@@ -22,6 +22,7 @@ dependencies {
             lib."log4jdbc-log4j2",
             lib."fastjson",
             lib."pagehelper",
+            lib."aspectjtools",
 
             lib."spring-aspects",
             lib.'jsmth-web',

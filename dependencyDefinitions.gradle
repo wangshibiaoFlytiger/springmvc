@@ -133,6 +133,7 @@ ext.lib = [
         "spring-webmvc"                               : "org.springframework:spring-webmvc:${versions.spring}",
         "spring-jms"                                  : "org.springframework:spring-jms:${versions.spring}",
         "spring-aspects"                              : "org.springframework:spring-aspects:${versions.spring}",
+        "aspectjtools"                                 :"org.aspectj:aspectjtools:1.8.9",
         "spring-test"                                 : "org.springframework:spring-test:${versions.spring}",
 
 

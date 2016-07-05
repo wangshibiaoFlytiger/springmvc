@@ -29,7 +29,8 @@ public class UserRestControllerTest extends BaseTest{
     public void addUser(){
         Map user = new HashMap<>();
         user.put("username", "restname1");
-        restTemplate.postForObject("http://localhost:8080/user", null, Map.class, user);
+        restTemplate.postForObject("http://localhost:8080/user", user, Map.class);
+        ResponseEntity responseEntity = restTemplate.postForEntity("http://localhost:8080/user", user, Map.class);
     }
 
     @Test

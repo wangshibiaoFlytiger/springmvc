@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  * 通过AspectJ创建aspect
  * 注意：更改java编译器为Ajc方可成功编译,Ajc编译器为aspectjtools.jar(已定义在工程依赖中)
  */
-public aspect ControllerAspect{
+public aspect ControllerAspect extends SpringBeanAutowiringSupport{
     final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     UserService userService;
@@ -29,6 +29,8 @@ public aspect ControllerAspect{
     pointcut controllerMethod() : execution(* com.wangshibiao.spring.*ontroller..*.*(..));
 
     before() : controllerMethod(){
+        User user = userService.getUserByUserName("admin");
+        logger.debug("DaoAspect @Before:"+user.getUsername());
         logger.debug("DaoAspect @Before: ");
     }
 }

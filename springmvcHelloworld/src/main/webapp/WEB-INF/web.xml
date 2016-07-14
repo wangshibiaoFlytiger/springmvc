@@ -21,13 +21,22 @@
 		<servlet-name>hello-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<filter>
 		<filter-name>httpPutFormFilter</filter-name>
 		<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>httpPutFormFilter</filter-name>
+		<servlet-name>hello-dispatcher</servlet-name>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>requestFilter</filter-name>
+		<filter-class>com.wangshibiao.spring.filter.RequestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>requestFilter</filter-name>
 		<servlet-name>hello-dispatcher</servlet-name>
 	</filter-mapping>
 

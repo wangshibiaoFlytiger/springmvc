@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URL;
+import java.util.Date;
 
 import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSSClient;
@@ -99,6 +101,11 @@ public class GetStartedSample {
             System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
             displayTextInputStream(object.getObjectContent());
 
+            // 设置URL过期时间为1小时
+            Date expiration = new Date(new Date().getTime() + 3600 * 1000);
+            // 生成URL
+            URL url = ossClient.generatePresignedUrl(bucketName, key, expiration);
+            System.out.println(url);
             /*
              * List objects in your bucket by prefix
              */

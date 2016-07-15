@@ -1,3 +1,4 @@
 rootProject.name = 'springProjects'
 include 'springmvcHelloworld'
+include 'aliyunOss'
 

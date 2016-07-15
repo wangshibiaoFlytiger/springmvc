@@ -1,0 +1,14 @@
+ext {
+    //模块名
+    moduleName = "aliyunOss";
+    version "${parent.version}"
+
+}
+
+dependencies {
+    compile(
+            lib."aliyun-sdk-oss",
+            lib."commons-io",
+    )
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

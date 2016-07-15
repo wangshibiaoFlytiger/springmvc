@@ -410,7 +410,7 @@ ext.lib = [
         "aws-java-sdk-gamelift"                       : "com.amazonaws:aws-java-sdk-gamelift:${versions.aws}",
         "aws-java-sdk-core"                           : "com.amazonaws:aws-java-sdk-core:${versions.aws}",
 
-        "aliyun-sdk-oss"                              : "com.aliyun.oss:aliyun-sdk-oss:2.2.1",
+        "aliyun-sdk-oss"                              : "com.aliyun.oss:aliyun-sdk-oss:2.2.3",
 
         "aliyun-java-sdk-core"                        : "com.aliyun:aliyun-java-sdk-core:2.1.7",
         "aliyun-java-sdk-sts"                         : "com.aliyun:aliyun-java-sdk-sts:2.1.6",

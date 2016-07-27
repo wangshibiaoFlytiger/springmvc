@@ -1,0 +1,13 @@
+ext {
+    //模块名
+    moduleName = "kafka";
+    version "${parent.version}"
+
+}
+
+dependencies {
+    compile(
+            lib."kafka",
+    )
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

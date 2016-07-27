@@ -450,6 +450,8 @@ ext.lib = [
         "pagehelper"                                  :"com.github.pagehelper:pagehelper:4.1.6",
         //数据源
         "HikariCP"                                    :"com.zaxxer:HikariCP:2.4.6",
+        //消息队列
+        "kafka"                                       : "org.apache.kafka:kafka_2.10:0.9.0.1",
 
 //        "":"::",
 //        "":"::",

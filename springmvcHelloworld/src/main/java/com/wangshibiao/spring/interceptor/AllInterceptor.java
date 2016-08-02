@@ -39,7 +39,6 @@ public class AllInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.debug("进入拦截器Interceptor preHandle");
 
-        //TODO: 无法获取请求参数
         String token = request.getParameter("token");
         String username = request.getParameter("username");
         User user = userService.getUserByUserName(username);

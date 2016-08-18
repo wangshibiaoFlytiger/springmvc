@@ -41,11 +41,16 @@ public class AllInterceptor extends HandlerInterceptorAdapter {
 
         String token = request.getParameter("token");
         String username = request.getParameter("username");
-        User user = userService.getUserByUserName(username);
-        if(token.equals("123") && !StringUtils.isEmpty(user))
+        if (!StringUtils.isEmpty(username)){
+            User user = userService.getUserByUserName(username);
+            if (!StringUtils.isEmpty(user))
+                System.out.println("AllInterceptor username:"+user.getUsername());
+        }
+
+        if(token.equals("123"))
             return true;
         else {
-            logger.debug("请求中需传入参数token=123，且username为有效用户，本拦截器才会放行。");
+            logger.debug("请求中需传入参数token=123，本拦截器才会放行。");
             return false;
         }
     }

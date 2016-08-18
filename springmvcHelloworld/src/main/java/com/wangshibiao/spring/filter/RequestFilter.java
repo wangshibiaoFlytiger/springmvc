@@ -36,11 +36,16 @@ public class RequestFilter extends SpringBeanAutowiringSupport implements Filter
         logger.debug("进入RequestFilter doFilter");
         String token = servletRequest.getParameter("token");
         String username = servletRequest.getParameter("username");
-        User user = userService.getUserByUserName(username);
-        if(token.equals("123") && !StringUtils.isEmpty(user))
+        if (!StringUtils.isEmpty(username)){
+            User user = userService.getUserByUserName(username);
+            if (!StringUtils.isEmpty(user))
+                System.out.println("RequestFilter username:"+user.getUsername());
+        }
+
+        if(token.equals("123"))
             filterChain.doFilter(servletRequest, servletResponse);
         else {
-            logger.debug("请求中需传入参数token=123，且username为有效用户，本过滤器才会放行。");
+            logger.debug("请求中需传入参数token=123，本过滤器才会放行。");
         }
     }
 

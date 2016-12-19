@@ -48,7 +48,7 @@ ext.lib = [
         "guava"                                       : 'com.google.guava:guava:19.0',
         "standard"                                    : 'taglibs:standard:1.1.2',
         "jstl"                                        : "javax.servlet:jstl:1.2",
-        "servlet-api"                                 : "javax.servlet:servlet-api:2.5",
+        "servlet-api"                                 : "javax.servlet:javax.servlet-api:3.1.0",
         "tomcat-servlet-api"                          : "tomcat:servlet-api:5.5.23",
 //        "servlet-api": "org.apache.tomcat:servlet-api:6.0.39",
         "jsp-api"                                     : "javax.servlet:jsp-api:2.0",

@@ -23,7 +23,10 @@ public class UserService {
         userExample.or()
                 .andUsernameEqualTo(userName);
         List<User> userList = userMapper.selectByExample(userExample);
-        return userList.get(0);
+        if (userList.size() != 0)
+            return userList.get(0);
+        else
+            return null;
     }
 
     @Transactional

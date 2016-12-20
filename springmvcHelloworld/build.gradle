@@ -36,8 +36,7 @@ dependencies {
 
 
 
-            'org.apache.shiro:shiro-core:1.2.4',
-            'org.apache.shiro:shiro-all:1.2.4',
+            lib."shiro-spring",
 //            'net.sf.ehcache:ehcache-core:2.4.6',
 
             'org.apache.poi:poi:3.9',

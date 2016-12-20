@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager" />
+        <!--认证失败会自动跳转到loginUrl-->
+        <property name="loginUrl" value="/user/login.json" />
+        <!--没有通过授权，会跳转到/403-->
+        <property name="unauthorizedUrl" value="/403" />
+
+        <property name="filterChainDefinitions">
+            <value>
+                <!--访问/user/getUser.json需要通过用户认证-->
+                /user/getUser.json = authc
+                <!--访问/user/userList.json，则当前用户需被授予权限/user/userList.json(且已通过用户认证) -->
+                /user/userList.json = perms[/user/userList.json]
+            </value>
+        </property>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myShiroRealm"></property>
+    </bean>
+
+</beans>

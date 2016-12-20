@@ -40,6 +40,17 @@
 		<servlet-name>hello-dispatcher</servlet-name>
 	</filter-mapping>
 
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 	<!-- For root context -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

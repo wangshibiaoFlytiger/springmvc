@@ -23,9 +23,9 @@ dependencies {
             lib."fastjson",
             lib."pagehelper",
             lib."aspectjtools",
+            lib."unirest",
 
             lib."spring-aspects",
-            lib.'jsmth-web',
 
             lib."commons-fileupload",
 

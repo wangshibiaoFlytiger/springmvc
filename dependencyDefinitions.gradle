@@ -452,6 +452,8 @@ ext.lib = [
         "HikariCP"                                    :"com.zaxxer:HikariCP:2.4.6",
         //消息队列
         "kafka"                                       : "org.apache.kafka:kafka_2.10:0.9.0.1",
+        //http工具
+        "unirest"                                     :"com.mashape.unirest:unirest-java:1.4.9",
 
 //        "":"::",
 //        "":"::",

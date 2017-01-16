@@ -55,6 +55,6 @@ public class UserRestControllerTest extends BaseTest{
 
     @Test
     public void getUserList(){
-        List userList = restTemplate.getForObject("http://localhost:8080/user", List.class);
+        List userList = restTemplate.getForObject("http://localhost:8080/user?token=123", List.class);
     }
 }

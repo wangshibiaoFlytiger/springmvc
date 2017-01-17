@@ -20,8 +20,8 @@ public class KafkaConsumer {
 
     private KafkaConsumer() {
         Properties props = new Properties();
-        //zookeeper 配置
-        props.put("zookeeper.connect", "10.96.15.194:2181");
+        //zookeeper 配置，可配置为集群
+        props.put("zookeeper.connect", "10.100.136.36:2181,10.100.136.37:2181,10.100.136.38:2181");
 
         //group 代表一个消费组
         props.put("group.id", "jd-group");

@@ -2,4 +2,5 @@ rootProject.name = 'springProjects'
 include 'springmvcHelloworld'
 include 'aliyunOss'
 include 'kafka'
+include 'scala'
 

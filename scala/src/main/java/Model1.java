@@ -1,6 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
 
+import scala.collection.JavaConverters;
+
 /**
  * Created by Wang Shibiao on 2017/1/17.
  */
@@ -18,8 +20,11 @@ public class Model1 {
         String var2  = "我调用的是scala jar的方法";
         System.out.println(var1);
         scala.Predef.println(var2);
-        //map变量的类型:scala.collection.immutable.Map<String, String>
-        scala.collection.immutable.Map<String, String> map =  HelloWorld.fun1("java类传给自定义scala类的信息");
-        System.out.println((map.get("msg")));
+        //mapScala变量的类型:scala.collection.immutable.Map<String, String>
+        scala.collection.immutable.Map<String, String> mapScala =  HelloWorld.fun1("java类传给自定义scala类的信息");
+        //将scala中的Map转为java中的Map
+        Map<String, String> mapJava = JavaConverters.mapAsJavaMap(HelloWorld.fun1("java类传给自定义scala类的信息"));
+        System.out.println((mapScala.get("msg")));
+        System.out.println((mapJava.get("msg")));
     }
 }

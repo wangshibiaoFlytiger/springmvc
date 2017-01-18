@@ -1,4 +1,5 @@
 import java.util.{Map => JavaMap}
+import scala.collection.{mutable, JavaConverters}
 
 /**
   * Created by Wang Shibiao on 2017/1/17.
@@ -24,8 +25,12 @@ object HelloWorld {
     var var2: String = "我调用的是java jar的方法"
     println(var1)
     System.out.println(var2)
-    //map变量的类型:java.util.Map
-    var map:JavaMap[_, _] = Model1.fun1("scala类传给自定义java类的信息");
-    println(map.get("msg"))
+    //mapJava变量的类型:java.util.Map
+    var mapJava:JavaMap[_, _] = Model1.fun1("scala类传给自定义java类的信息");
+    println("mapJava.msg："+mapJava.get("msg"))
+    //TODO: 如下代码运行时异常
+    //将java中的Map转为scala中的Map
+    /*var mapScala:mutable.Map[Any, Any] = JavaConverters.mapAsScalaMap(Model1.fun1("scala类传给自定义java类的信息")) ;
+    println("mapScala.msg："+mapScala.get("msg"))*/
   }
 }

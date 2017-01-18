@@ -1,4 +1,4 @@
-import org.apache.commons.lang.StringUtils
+import java.util.{Map => JavaMap}
 
 /**
   * Created by Wang Shibiao on 2017/1/17.
@@ -12,12 +12,20 @@ import org.apache.commons.lang.StringUtils
   * 代码必须经过手动编译后，才能断点调试
   */
 object HelloWorld {
+  def fun1(in: String): Map[String, String] ={
+    var outMap:Map[String,String] = Map()
+    outMap += ("in" -> in)
+    outMap += ("msg" -> "我是自定义java类的方法")
+    return outMap;
+  }
+
   def main(args: Array[String]) {
     var var1: String = "我调用的是scala方法"
     var var2: String = "我调用的是java jar的方法"
     println(var1)
     System.out.println(var2)
-    var map = Model1.fun1("scala类传给java类的信息");
+    //map变量的类型:java.util.Map
+    var map:JavaMap[_, _] = Model1.fun1("scala类传给自定义java类的信息");
     println(map.get("msg"))
   }
 }

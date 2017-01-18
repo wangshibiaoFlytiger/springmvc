@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,5 +11,15 @@ public class Model1 {
         outMap.put("msg", "我是自定义java类的方法");
 
         return outMap;
+    }
+
+    public static void main(String[] args){
+        String var1 = "我调用的是java方法";
+        String var2  = "我调用的是scala jar的方法";
+        System.out.println(var1);
+        scala.Predef.println(var2);
+        //map变量的类型:scala.collection.immutable.Map<String, String>
+        scala.collection.immutable.Map<String, String> map =  HelloWorld.fun1("java类传给自定义scala类的信息");
+        System.out.println((map.get("msg")));
     }
 }

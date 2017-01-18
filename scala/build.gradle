@@ -12,3 +12,18 @@ dependencies {
     )
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+/**
+ * 加入如下配置，使能够：在java类中调用scala类
+ */
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/scala', 'src/main/java']
+        }
+        java {
+            srcDirs = []
+        }
+    }
+}
+

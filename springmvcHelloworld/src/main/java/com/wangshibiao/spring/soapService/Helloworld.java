@@ -4,17 +4,10 @@ import com.wangshibiao.spring.dao.UserMapper;
 import com.wangshibiao.spring.model.User;
 import com.wangshibiao.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
-
-import javax.annotation.Resource;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
 
 /**
  * Created by Wang Shibiao on 2016/6/27.

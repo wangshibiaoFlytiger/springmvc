@@ -1,5 +1,8 @@
+package com.wangshibiao.scala
+
 import java.util.{Map => JavaMap}
 import scala.collection.{mutable, JavaConverters}
+import com.wangshbiao.scala.Model1
 
 /**
   * Created by Wang Shibiao on 2017/1/17.

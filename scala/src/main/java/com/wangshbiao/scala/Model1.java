@@ -1,6 +1,9 @@
+package com.wangshbiao.scala;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import com.wangshibiao.scala.HelloWorld;
 import scala.collection.JavaConverters;
 
 /**

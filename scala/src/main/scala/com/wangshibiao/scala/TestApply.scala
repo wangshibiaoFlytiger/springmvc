@@ -1,3 +1,5 @@
+package com.wangshibiao.scala
+
 /**
   * Created by Wang Shibiao on 2017/1/18.
   */

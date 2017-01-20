@@ -44,6 +44,7 @@ dependencies {
             lib.'dom4j',
             'jaxen:jaxen:1.1.6',
             lib."gson",
+            lib."nexusPrivateLibrary",
     )
 
 

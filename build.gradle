@@ -56,6 +56,10 @@ subprojects {
             url "http://maven.aliyun.com/nexus/content/groups/public"
         }
         jcenter()
+        maven {
+            name 'Nexus Private Library'
+            url "http://10.96.15.73/repository/maven-public"
+        }
 /*        maven {
             name 'osc'
             url "http://maven.oschina.net/content/groups/public/"

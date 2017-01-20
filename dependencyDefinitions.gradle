@@ -456,6 +456,8 @@ ext.lib = [
         "unirest"                                     :"com.mashape.unirest:unirest-java:1.4.9",
         //scala
         "scala-library"                                     :"org.scala-lang:scala-library:2.12.1",
+        //私有库
+        "nexusPrivateLibrary"                              :"com.wangshibiao.spring:scala:1.0-RELEASE",
 //        "":"::",
 //        "":"::",
 //        "":"::",

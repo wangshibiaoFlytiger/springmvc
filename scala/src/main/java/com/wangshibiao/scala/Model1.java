@@ -1,4 +1,4 @@
-package com.wangshbiao.scala;
+package com.wangshibiao.scala;
 
 import java.util.HashMap;
 import java.util.Map;

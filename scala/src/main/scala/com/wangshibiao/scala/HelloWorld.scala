@@ -2,7 +2,7 @@ package com.wangshibiao.scala
 
 import java.util.{Map => JavaMap}
 import scala.collection.{mutable, JavaConverters}
-import com.wangshbiao.scala.Model1
+import com.wangshibiao.scala.Model1
 
 /**
   * Created by Wang Shibiao on 2017/1/17.
@@ -19,7 +19,7 @@ object HelloWorld {
   def fun1(in: String): Map[String, String] ={
     var outMap:Map[String,String] = Map()
     outMap += ("in" -> in)
-    outMap += ("msg" -> "我是自定义java类的方法")
+    outMap += ("msg" -> "我是自定义scala类的方法")
     return outMap;
   }
 

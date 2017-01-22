@@ -1,4 +1,4 @@
-group 'com.wangshibiao.spring'
+group 'com.wangshibiao.gradle'
 //version '1.0-SNAPSHOT'
 version '1.0-RELEASE'
 
@@ -10,7 +10,7 @@ apply from: 'dependencyDefinitions.gradle'
 
 ext {
     //模块名
-    moduleName = "springProjects";
+    moduleName = "gradleProjects";
 //    version "1.0-SNAPSHOT"
     version "1.0-RELEASE"
 }
@@ -23,7 +23,7 @@ subprojects {
     apply plugin: 'maven'
     apply plugin: 'signing' //使用signing plugin做数字签名
 
-    group = 'com.wangshibiao.spring'
+    group = 'com.wangshibiao.gradle'
 
     // java编译的时候缺省状态下会因为中文字符而失败
     // 所以这儿需要改为utf8

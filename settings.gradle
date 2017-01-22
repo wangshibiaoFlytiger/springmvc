@@ -1,4 +1,4 @@
-rootProject.name = 'springProjects'
+rootProject.name = 'gradleProjects'
 include 'springmvcHelloworld'
 include 'aliyunOss'
 include 'kafka'

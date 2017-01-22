@@ -457,7 +457,7 @@ ext.lib = [
         //scala
         "scala-library"                                     :"org.scala-lang:scala-library:2.12.1",
         //私有库
-        "nexusPrivateLibrary"                              :"com.wangshibiao.spring:scala:1.0-RELEASE",
+        "nexusPrivateLibrary"                              :"com.wangshibiao.gradle:scala:1.0-RELEASE",
 //        "":"::",
 //        "":"::",
 //        "":"::",

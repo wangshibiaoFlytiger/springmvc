@@ -1,0 +1,3 @@
+一. 常见问题
+1. java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+解决方法：

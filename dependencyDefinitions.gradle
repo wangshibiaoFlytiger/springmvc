@@ -458,6 +458,8 @@ ext.lib = [
         "scala-library"                                     :"org.scala-lang:scala-library:2.12.1",
         //私有库
         "nexusPrivateLibrary"                              :"com.wangshibiao.gradle:scala:1.0-RELEASE",
+        //大数据
+        "spark"                              :"org.apache.spark:spark-core_2.11:2.1.0",
 //        "":"::",
 //        "":"::",
 //        "":"::",

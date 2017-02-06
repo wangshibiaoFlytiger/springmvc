@@ -3,4 +3,5 @@ include 'springmvcHelloworld'
 include 'aliyunOss'
 include 'kafka'
 include 'scala'
+include 'sparkStudy'
 

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  *  1> gradle autobuild  //打jar包以及依赖jar包
  *  2> java -classpath F:\github\gradleProjects\out\build\springbootDemo\dependicies\*;F:\github\gradleProjects\out\build\springbootDemo\libs\* com.wangshibiao.springbootdemo.Application
  */
-
+@SpringBootApplication
 public class Application {
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);

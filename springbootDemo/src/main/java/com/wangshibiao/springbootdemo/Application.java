@@ -21,11 +21,3 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }
-
-@RestController
-class AppController{
-    @RequestMapping("/")
-    String home(){
-        return "Hello World!";
-    }
-}

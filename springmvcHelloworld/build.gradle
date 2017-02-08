@@ -49,6 +49,7 @@ dependencies {
 
 
     testCompile (
+            lib.'junit',
             lib.'spring-test'
     )
 }

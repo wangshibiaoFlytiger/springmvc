@@ -101,12 +101,6 @@ subprojects {
     }
 
     dependencies {
-        compile(
-                lib.'slf4j-api',
-                lib.'slf4j-log4j12',
-                lib.'log4j',
-        )
-        testCompile lib.'junit'
         deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
     }
 

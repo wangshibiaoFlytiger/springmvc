@@ -1,0 +1,19 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.1.RELEASE'
+}
+
+ext {
+    //模块名
+    moduleName = "springbootDemo";
+    version "${parent.version}"
+}
+
+dependencies {
+    compile(
+            lib."spring-boot-starter-web",
+    )
+
+    testCompile(
+            lib."spring-boot-starter-test",
+    )
+}

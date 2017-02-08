@@ -460,6 +460,10 @@ ext.lib = [
         "nexusPrivateLibrary"                              :"com.wangshibiao.gradle:scala:1.0-RELEASE",
         //大数据
         "spark"                              :"org.apache.spark:spark-core_2.11:2.1.0",
+        //spring boot
+        "spring-boot-starter-web"                              :"org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE",
+        "spring-boot-starter-test"                             :"org.springframework.boot:spring-boot-starter-test:1.5.1.RELEASE",
+        "spring-boot-starter-tomcat"                           :"org.springframework.boot:spring-boot-starter-tomcat:1.5.1.RELEASE",
 //        "":"::",
 //        "":"::",
 //        "":"::",

@@ -11,6 +11,8 @@ ext {
 dependencies {
     compile(
             lib."spring-boot-starter-web",
+            lib."spring-boot-starter-data-jpa",
+            lib."mysql-connector-java",
     )
 
     testCompile(

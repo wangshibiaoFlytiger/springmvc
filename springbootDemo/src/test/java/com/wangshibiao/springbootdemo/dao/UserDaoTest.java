@@ -87,11 +87,11 @@ public class UserDaoTest {
 
     /**
      * 测试自定义的数据库操作：
-     * 实现方法：通过自定义sql语句
+     * 实现方法：通过JPQL语句
      * @throws Exception
      */
     @Test
-    public void testFindUserBySql() throws Exception {
+    public void testFindUserByJpql() throws Exception {
         List<User> userList = userDao.findByJpql("wangli");
     }
 }

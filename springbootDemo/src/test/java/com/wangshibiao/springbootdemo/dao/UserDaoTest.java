@@ -92,6 +92,6 @@ public class UserDaoTest {
      */
     @Test
     public void testFindUserBySql() throws Exception {
-        List<User> userList = userDao.findBySql("wangli");
+        List<User> userList = userDao.findByJpql("wangli");
     }
 }

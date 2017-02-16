@@ -25,6 +25,12 @@ public interface UserDao extends JpaRepository<User, String> {
      */
     User getById(String id);
     List<User> findByNameAndAge(String name, Integer age);
+
+    /**
+     * 通过JPQL查询
+     * @param name
+     * @return
+     */
     @Query("select u from User u where u.name = :name")
-    List<User> findBySql(@Param("name") String name);
+    List<User> findByJpql(@Param("name") String name);
 }

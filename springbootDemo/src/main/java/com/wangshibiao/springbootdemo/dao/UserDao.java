@@ -41,4 +41,15 @@ public interface UserDao extends JpaRepository<User, String> {
      */
     @Query(value = "select * from User u where u.name = :name", nativeQuery = true)
     List<User> findByOriginalsql(@Param("name") String name);
+
+    /**
+     * 通过原生SQL做关联表查询
+     * @param orgId
+     * @return
+     */
+    @Query(value = "select u.* " +
+            "from User u " +
+            "left join Org o on u.orgId = o.id " +
+            "where o.id = :orgId", nativeQuery = true)
+    List<User> findByOrgId(@Param("orgId") String orgId);
 }

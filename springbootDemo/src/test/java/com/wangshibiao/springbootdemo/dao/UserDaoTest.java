@@ -106,6 +106,7 @@ public class UserDaoTest {
     public void testFindUserByJpql() throws Exception {
         List<User> userList = userDao.findByJpql("wangli");
     }
+
     /**
      * 测试自定义的数据库操作：
      * 实现方法：通过原生SQL语句
@@ -114,5 +115,15 @@ public class UserDaoTest {
     @Test
     public void testFindUserByOriginalsql() throws Exception {
         List<User> userList = userDao.findByOriginalsql("wangli");
+    }
+
+    /**
+     * 测试自定义的数据库操作：
+     * 实现方法：通过原生SQL做关联表查询
+     * @throws Exception
+     */
+    @Test
+    public void testFindByOrgId() throws Exception {
+        List<User> userList = userDao.findByOrgId("ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
     }
 }

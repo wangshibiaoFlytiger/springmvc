@@ -1,5 +1,6 @@
 package com.wangshibiao.springbootdemo.dao;
 
+import com.wangshibiao.springbootdemo.model.Org;
 import com.wangshibiao.springbootdemo.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,8 @@ import static org.junit.Assert.*;
 public class UserDaoTest {
     @Autowired
     UserDao userDao;
+    @Autowired
+    OrgDao orgDao;
 
     /**
      * 测试springdatajpa的已实现的方法: save
@@ -31,7 +34,16 @@ public class UserDaoTest {
         user.setName("wangli");
         user.setAge(12);
 
+        //设置关联表
+        Org org = orgDao.findAll().get(0);
+        user.setOrg(org);
         userDao.save(user);
+
+        //TODO: 以下代码报异常，关联对象不会自动创建
+/*        org = new Org();
+        org.setName("org2");
+        user.setOrg(org);
+        userDao.save(user);*/
     }
 
     /**
@@ -71,7 +83,7 @@ public class UserDaoTest {
      */
     @Test
     public void testGetById() throws Exception {
-        User user = userDao.getById("8f105016-f31a-11e6-a188-00ff3b946d39");
+        User user = userDao.getById("0949d7ed-f40d-11e6-9481-00ff3b946d39");
     }
 
     /**

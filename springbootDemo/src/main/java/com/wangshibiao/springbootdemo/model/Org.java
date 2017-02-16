@@ -3,13 +3,15 @@ package com.wangshibiao.springbootdemo.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Wang Shibiao on 2017/2/13.
  */
 @Entity
-@Table(name = "User")
-public class User {
+@Table(name = "Org")
+public class Org {
     @Id
     @GeneratedValue(generator = "idGenerator")
     @GenericGenerator(name = "idGenerator", strategy = "guid")
@@ -18,25 +20,17 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private Integer age;
+    //TODO: OneToMany没有验证通过
+    /*@OneToMany(mappedBy="org")
+    private List<User> userList = new ArrayList<User>();
 
-    //TODO: 采用懒加载后,取关联表数据报异常:(fetch = FetchType.LAZY)
-    @ManyToOne
-    @JoinColumn(
-            name = "orgId",
-            nullable = false,
-            //不建立外键
-            foreignKey = @ForeignKey(name = "none"))
-    private Org org;
-
-    public Org getOrg() {
-        return org;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setOrg(Org org) {
-        this.org = org;
-    }
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }*/
 
     public String getId() {
         return id;
@@ -52,13 +46,5 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 }

@@ -7,4 +7,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      naming:
+#        无修改命令:org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#        遇到大写字母则加"_"的命名:org.hibernate.boot.model.naming.SpringPhysicalNamingStrategy
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true

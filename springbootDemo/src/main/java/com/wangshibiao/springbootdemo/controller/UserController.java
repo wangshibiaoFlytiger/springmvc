@@ -46,9 +46,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public User findUserById(HttpServletRequest request, HttpServletResponse response,
+    public User getUserById(HttpServletRequest request, HttpServletResponse response,
                                  @PathVariable String id){
-        User user = userDao.findById(id);
+        User user = userDao.getById(id);
         return user;
     }
 

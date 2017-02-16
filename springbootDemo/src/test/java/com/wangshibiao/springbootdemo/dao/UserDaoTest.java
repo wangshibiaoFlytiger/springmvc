@@ -65,6 +65,17 @@ public class UserDaoTest {
 
     /**
      * 测试自定义的数据库操作：
+     * 1. 1个字段做条件
+     * 2. 实现方法：按约定定义方法名称
+     * @throws Exception
+     */
+    @Test
+    public void testGetById() throws Exception {
+        User user = userDao.getById("8f105016-f31a-11e6-a188-00ff3b946d39");
+    }
+
+    /**
+     * 测试自定义的数据库操作：
      * 1. 多个字段做条件
      * 2. 实现方法：按约定定义方法名称
      * @throws Exception

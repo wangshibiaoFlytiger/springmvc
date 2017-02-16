@@ -73,7 +73,7 @@ public class UserControllerTest {
      * @throws Exception
      */
     @Test
-    public void testFindUserById() throws Exception {
+    public void testGetUserById() throws Exception {
         //法1
         User user = restTemplate.getForObject("http://localhost:8080/users/ade9759c-f34c-11e6-a188-00ff3b946d39", User.class);
         //法2

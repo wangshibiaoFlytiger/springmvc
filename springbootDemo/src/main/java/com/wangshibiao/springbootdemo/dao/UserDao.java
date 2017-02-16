@@ -17,6 +17,13 @@ public interface UserDao extends JpaRepository<User, String> {
      * @return
     List<User> findById(String id);*/
     User findById(String id);
+
+    /**
+     * 同findById：get与find可等价替换
+     * @param id
+     * @return
+     */
+    User getById(String id);
     List<User> findByNameAndAge(String name, Integer age);
     @Query("select u from User u where u.name = :name")
     List<User> findBySql(@Param("name") String name);

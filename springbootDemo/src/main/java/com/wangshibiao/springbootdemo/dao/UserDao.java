@@ -33,4 +33,12 @@ public interface UserDao extends JpaRepository<User, String> {
      */
     @Query("select u from User u where u.name = :name")
     List<User> findByJpql(@Param("name") String name);
+
+    /**
+     * 通过原生SQL查询
+     * @param name
+     * @return
+     */
+    @Query(value = "select * from User u where u.name = :name", nativeQuery = true)
+    List<User> findByOriginalsql(@Param("name") String name);
 }

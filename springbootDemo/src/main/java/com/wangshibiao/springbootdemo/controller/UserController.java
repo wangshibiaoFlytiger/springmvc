@@ -46,10 +46,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public User getUserById(HttpServletRequest request, HttpServletResponse response,
+    public ResponseEntity<User> getUserById(HttpServletRequest request, HttpServletResponse response,
                                  @PathVariable String id){
         User user = userDao.getById(id);
-        return user;
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)

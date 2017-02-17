@@ -87,6 +87,7 @@ public class UserControllerTest {
         Map paras = new HashMap<>();
         paras.put("id", "ade9759c-f34c-11e6-a188-00ff3b946d39");
         user = restTemplate.getForObject(url2, User.class, paras);
+        ResponseEntity<User> userResponseEntity = restTemplate.getForEntity(url2, User.class, paras);
     }
 
     /**

@@ -40,9 +40,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
-    public void deleteUser(HttpServletRequest request, HttpServletResponse response,
+    public ResponseEntity deleteUser(HttpServletRequest request, HttpServletResponse response,
                                         @PathVariable String id){
         userDao.delete(id);
+        return ResponseEntity.ok().body(null);
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
@@ -53,8 +54,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<User> findAllUsers(HttpServletRequest request, HttpServletResponse response){
+    public ResponseEntity<List<User>> findAllUsers(HttpServletRequest request, HttpServletResponse response){
         List<User> userList = userDao.findAll();
-        return userList;
+        return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
     }
 }

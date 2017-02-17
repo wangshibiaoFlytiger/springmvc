@@ -98,5 +98,7 @@ public class UserControllerTest {
     public void testFindAllUsers() throws Exception {
         String url = "http://localhost:8080/users";
         List<User> userList = restTemplate.getForObject(url, List.class);
+        //TODO:如下写法未通过
+        // ResponseEntity<List<User>> userListResponseEntity = restTemplate.getForObject(url, List.class);
     }
 }

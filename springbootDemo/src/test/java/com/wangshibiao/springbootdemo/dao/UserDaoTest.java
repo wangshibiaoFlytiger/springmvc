@@ -1,5 +1,6 @@
 package com.wangshibiao.springbootdemo.dao;
 
+import com.wangshibiao.springbootdemo.dao.condition.jpacriteria.UserSpec;
 import com.wangshibiao.springbootdemo.model.Org;
 import com.wangshibiao.springbootdemo.model.User;
 import org.junit.Test;
@@ -147,5 +148,11 @@ public class UserDaoTest {
         userPage = userDao.findByJpqlOneTable("name1", pageable);
 //        JPQL分页查询(多表操作)
         userPage = userDao.findByJpqlManyTable("ae7bb54a-f3f7-11e6-9481-00ff3b946d39", pageable);
+//        基于JPA Criteria API，分页查询(单表，无条件查询)
+        userPage = userDao.findAll(UserSpec.findAll(), pageable);
+//        基于JPA Criteria API，分页查询(单表，条件查询)
+        userPage = userDao.findAll(UserSpec.findByName("name1"), pageable);
+//        基于JPA Criteria API，分页查询(多表，条件查询)
+        userPage = userDao.findAll(UserSpec.findByOrgId("ae7bb54a-f3f7-11e6-9481-00ff3b946d39"), pageable);
     }
 }

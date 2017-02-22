@@ -3,6 +3,10 @@ package com.wangshibiao.springbootdemo.controller;
 import com.wangshibiao.springbootdemo.dao.UserDao;
 import com.wangshibiao.springbootdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -57,5 +61,23 @@ public class UserController {
     public ResponseEntity<List<User>> findAllUsers(HttpServletRequest request, HttpServletResponse response){
         List<User> userList = userDao.findAll();
         return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
+    }
+
+    /**
+     * 分页查询
+     * @param request
+     * @param response
+     * @param page
+     * @param size
+     * @return
+     */
+    @RequestMapping(value = "/userPages", method = RequestMethod.GET)
+    public ResponseEntity<Page<User>> findUserPage(HttpServletRequest request, HttpServletResponse response,
+                                                   Integer page,
+                                                   Integer size){
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        Pageable pageable = new PageRequest(page, size, sort);
+        Page<User> userPage = userDao.findAll(pageable);
+        return new ResponseEntity<Page<User>>(userPage, HttpStatus.OK);
     }
 }

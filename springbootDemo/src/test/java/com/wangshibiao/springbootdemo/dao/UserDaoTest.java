@@ -5,8 +5,10 @@ import com.wangshibiao.springbootdemo.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -125,5 +127,25 @@ public class UserDaoTest {
     @Test
     public void testFindByOrgId() throws Exception {
         List<User> userList = userDao.findByOrgId("ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
+    }
+
+    /**
+     * 分页查询：分页查询
+     * @throws Exception
+     */
+    @Test
+    public void testFindUserPage() throws Exception {
+        Integer page = 1;
+        Integer size = 2;
+//        page起始页码从0开始
+        Pageable pageable = new PageRequest(page-1, size);
+//        springdatajpa已有的函数，进行分页查询
+        Page<User> userPage = userDao.findAll(pageable);
+//        符合springdatajpa约定的函数，进行分页查询
+        userPage = userDao.findByNameAndAge("name1", 13, pageable);
+//        JPQL分页查询(单表操作)
+        userPage = userDao.findByJpqlOneTable("name1", pageable);
+//        JPQL分页查询(多表操作)
+        userPage = userDao.findByJpqlManyTable("ae7bb54a-f3f7-11e6-9481-00ff3b946d39", pageable);
     }
 }

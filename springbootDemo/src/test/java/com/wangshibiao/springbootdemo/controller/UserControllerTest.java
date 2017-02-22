@@ -101,4 +101,19 @@ public class UserControllerTest {
         //TODO:如下写法未通过
         // ResponseEntity<List<User>> userListResponseEntity = restTemplate.getForObject(url, List.class);
     }
+
+    /**
+     * 测试restful api: 分页查询/users/{page}
+     * @throws Exception
+     */
+    @Test
+    public void testFindUserPage() throws Exception {
+        String url = "http://localhost:8080/userPages?page={page}&size={size}";
+        Map paras = new HashMap<>();
+        paras.put("page", 2);
+        paras.put("size", 3);
+//         TODO: 2017/2/22 如下写法未通过: 无法反序列化Page对象
+//        ResponseEntity<Page> userResponseEntity = restTemplate.getForEntity(url, Page.class, paras);
+        ResponseEntity<String> userResponseEntity = restTemplate.getForEntity(url, String.class, paras);
+    }
 }

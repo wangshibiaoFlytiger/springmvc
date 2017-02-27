@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by Wang Shibiao on 2017/2/13.
  */
-public interface UserDao extends JpaRepository<User, String>, JpaSpecificationExecutor<User>{
+public interface UserDao extends JpaRepository<User, String>, JpaSpecificationExecutor<User>, QueryDslPredicateExecutor<User>{
     /**
      * findById的返回类型由User改为List<User>，也能正常运行，框架会自动转换
      * @param id

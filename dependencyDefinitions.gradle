@@ -17,9 +17,8 @@ ext.versions = [
         slf4j         : '1.7.5',
         httpcomponents: '4.3.1',
         lucene        : '4.7.0',
-        querydsl      : '3.6.0',
         hsqldb        : '2.2.9',
-        querydsl      : '3.7.0',
+        querydsl      : '4.1.4',
         jodd          : '3.6.7',
         springside    : '4.2.2.GA',
         jackson       : '2.3.3',
@@ -37,12 +36,6 @@ ext.lib = [
 
 
         mavenAntTasks                                 : 'org.apache.maven:maven-ant-tasks:2.1.1',
-
-//        "querydsl-core":"com.mysema.querydsl:querydsl-core:${versions.querydsl}",
-//        "querydsl-apt":"com.mysema.querydsl:querydsl-apt:${versions.querydsl}",
-//        "querydsl-jpa":"com.mysema.querydsl:querydsl-jpa:${versions.querydsl}",
-        "querydsl-sql"                                : "com.mysema.querydsl:querydsl-sql:${versions.querydsl}",
-
         "javax.el-api"                                : "javax.el:javax.el-api:2.2.4",
 
         "guava"                                       : 'com.google.guava:guava:19.0',
@@ -307,18 +300,6 @@ ext.lib = [
         "solr-uima"                                   : "org.apache.solr:solr-uima:${versions.lucene}",
         "solr-velocity"                               : "org.apache.solr:solr-velocity:${versions.lucene}",
 
-        "querydsl-apt"                                : "com.mysema.querydsl:querydsl-apt:${versions.querydsl}",
-        "querydsl-jdo"                                : "com.mysema.querydsl:querydsl-jdo:${versions.querydsl}",
-        "querydsl-sql"                                : "com.mysema.querydsl:querydsl-sql:${versions.querydsl}",
-        "querydsl-sql-codegen"                        : "com.mysema.querydsl:querydsl-sql-codegen:${versions.querydsl}",
-        "querydsl-codegen"                            : "com.mysema.querydsl:querydsl-codegen:${versions.querydsl}",
-        "querydsl-jpa-codegen"                        : "com.mysema.querydsl:querydsl-jpa-codegen:${versions.querydsl}",
-        "querydsl-sql-spring"                         : "com.mysema.querydsl:querydsl-sql-spring:${versions.querydsl}",
-        "querydsl-maven-plugin"                       : "com.mysema.querydsl:querydsl-maven-plugin:${versions.querydsl}",
-        "querydsl-lucene"                             : "com.querydsl:querydsl-lucene:3.1.1",
-
-        "querydsl-plugin"                             : "com.mysema.maven:apt-maven-plugin:1.1.3",
-
         "thoughtworks-paranamer"                      : "com.thoughtworks.paranamer:paranamer:2.3",
 
         "maven-plugin-api"                            : "org.apache.maven:maven-plugin-api:3.3.9",
@@ -467,6 +448,9 @@ ext.lib = [
         "spring-boot-starter-data-jpa"                           :"org.springframework.boot:spring-boot-starter-data-jpa:1.5.1.RELEASE",
         "spring-boot-starter-jdbc"                           :"org.springframework.boot:spring-boot-starter-jdbc:1.5.1.RELEASE",
         "mysql-connector-java"                           :"mysql:mysql-connector-java:5.1.38",
+        //querydsl
+        "querydsl-jpa"                                    : "com.querydsl:querydsl-jpa:${versions.querydsl}",
+        "querydsl-apt"                                      :"com.querydsl:querydsl-apt:${versions.querydsl}",
 //        "":"::",
 //        "":"::",
 //        "":"::",

@@ -1,7 +1,13 @@
 package com.wangshibiao.springbootdemo.dao;
 
+import com.querydsl.core.Tuple;
+import com.querydsl.core.types.Predicate;
+import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.wangshibiao.springbootdemo.dao.condition.jpacriteria.UserSpec;
 import com.wangshibiao.springbootdemo.model.Org;
+import com.wangshibiao.springbootdemo.model.QOrg;
+import com.wangshibiao.springbootdemo.model.QUser;
 import com.wangshibiao.springbootdemo.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +16,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
+import org.springframework.data.jpa.repository.support.QueryDslJpaRepository;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -21,11 +30,13 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserDaoTest {
+public class UserDaoTest{
     @Autowired
     UserDao userDao;
     @Autowired
     OrgDao orgDao;
+    @Autowired
+    EntityManager entityManager;
 
     /**
      * 测试springdatajpa的已实现的方法: save
@@ -154,5 +165,19 @@ public class UserDaoTest {
         userPage = userDao.findAll(UserSpec.findByName("name1"), pageable);
 //        基于JPA Criteria API，分页查询(多表，条件查询)
         userPage = userDao.findAll(UserSpec.findByOrgId("ae7bb54a-f3f7-11e6-9481-00ff3b946d39"), pageable);
+//        基于QueryDSL，单表分页查询
+        QUser qUser = QUser.user;
+        Predicate predicate = qUser.name.eq("name1")
+                .and(qUser.age.eq(13));
+        userPage = userDao.findAll(predicate, pageable);
+//         TODO: 2017/2/27 以下代码报异常（基于QueryDSL，多表分页查询）
+//        基于QueryDSL，多表分页查询
+        JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(entityManager);
+        JPAQuery<Tuple> tupleJPAQuery = jpaQueryFactory.select(QUser.user, QOrg.org)
+                .from(QUser.user)
+                .innerJoin(QOrg.org, new QOrg("org"));
+        predicate = QOrg.org.id.eq("ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
+        tupleJPAQuery.where(predicate);
+        List<Tuple> tupleList = tupleJPAQuery.fetch();
     }
 }

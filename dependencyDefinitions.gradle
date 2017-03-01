@@ -451,6 +451,9 @@ ext.lib = [
         //querydsl
         "querydsl-jpa"                                    : "com.querydsl:querydsl-jpa:${versions.querydsl}",
         "querydsl-apt"                                      :"com.querydsl:querydsl-apt:${versions.querydsl}",
+        //jooq
+        "spring-boot-starter-jooq"                           :"org.springframework.boot:spring-boot-starter-jooq:1.5.1.RELEASE",
+        "spring-boot-configuration-processor"                           :"org.springframework.boot:spring-boot-configuration-processor:1.5.1.RELEASE",
 //        "":"::",
 //        "":"::",
 //        "":"::",

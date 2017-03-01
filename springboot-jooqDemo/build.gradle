@@ -15,6 +15,7 @@ dependencies {
             lib."mysql-connector-java",
             lib."spring-boot-starter-jooq",
             lib."spring-boot-configuration-processor",
+            lib."HikariCP",
     )
 
     jooqRuntime lib."mysql-connector-java",

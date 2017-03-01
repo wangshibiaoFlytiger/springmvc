@@ -10,16 +10,16 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "spring.datasource")
 public class ConfigProperties {
-    private String url;
+    private String jdbcUrl;
     private String username;
     private String password;
 
-    public String getUrl() {
-        return url;
+    public String getJdbcUrl() {
+        return jdbcUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setJdbcUrl(String jdbcUrl) {
+        this.jdbcUrl = jdbcUrl;
     }
 
     public String getUsername() {

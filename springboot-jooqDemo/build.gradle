@@ -64,7 +64,7 @@ jooq {
                 records = true
                 immutablePojos = true
                 fluentSetters = true
-//                daos = true
+                daos = true
                 // ...
             }
             target {

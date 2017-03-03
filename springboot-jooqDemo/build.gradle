@@ -55,6 +55,7 @@ jooq {
             }*/
             database {
                 name = 'org.jooq.util.mysql.MySQLDatabase'
+                includes = 'testDB.*'
 //                inputSchema = 'public'
                 // ...
             }

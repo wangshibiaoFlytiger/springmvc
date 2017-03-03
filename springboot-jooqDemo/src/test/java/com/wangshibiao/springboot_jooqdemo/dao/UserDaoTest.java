@@ -30,9 +30,14 @@ public class UserDaoTest {
         //调用jooq生成的dao类的方法
         userList = userDao.getJooqDao().findAll();
     }
+
     @Test
     public void testInsert() throws Exception {
-        User user = new User(UUID.randomUUID().toString(), 12, "wangsi1", "ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
+        User user = new User();
+        user.setId(UUID.randomUUID().toString());
+        user.setAge(12);
+        user.setName("wangsi1");
+        user.setOrgid("ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
         userDao.getJooqDao().insert(user);
     }
 }

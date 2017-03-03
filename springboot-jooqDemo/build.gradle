@@ -45,12 +45,11 @@ jooq {
                 includes = 'testDB.*'
             }
             generate {
+                pojos = true
                 relations = true
-                deprecated = false
-                records = true
-                immutablePojos = true
-                fluentSetters = true
                 daos = true
+                records = true
+                validationAnnotations = true
             }
             target {
                 packageName = 'com.wangshibiao.springboot_jooqdemo.jooq.generated'

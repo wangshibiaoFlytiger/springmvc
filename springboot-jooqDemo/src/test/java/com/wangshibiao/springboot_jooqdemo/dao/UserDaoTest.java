@@ -36,6 +36,17 @@ public class UserDaoTest {
     }
 
     /**
+     * 单表分页查询
+     * @throws Exception
+     */
+    @Test
+    public void testFindAllPage() throws Exception {
+        Integer pageIndex = 2;
+        Integer pageRows = 3;
+        List<User> userList = userDao.findAllPage(pageIndex-1, pageRows);
+    }
+
+    /**
      * 插入操作
      * @throws Exception
      */
@@ -86,5 +97,16 @@ public class UserDaoTest {
     @Test
     public void testFindByOrgId() throws Exception {
         List<User> userList = userDao.findByOrgId("ae7bb54a-f3f7-11e6-9481-00ff3b946d39");
+    }
+
+    /**
+     * 多表分页查询
+     * @throws Exception
+     */
+    @Test
+    public void testFindByOrgIdPage() throws Exception {
+        Integer pageIndex = 2;
+        Integer pageRows = 3;
+        List<User> userList = userDao.findByOrgIdPage("ae7bb54a-f3f7-11e6-9481-00ff3b946d39", pageIndex, pageRows);
     }
 }

@@ -17,8 +17,26 @@ public class UserDao extends BaseDao{
         return jooqDao;
     }
 
+    /**
+     * 单表查询所有数据
+     * @return
+     */
     public List<User> findAll(){
         List<User> userList = dslContext.select().from(Tables.USER).fetchInto(User.class);
+        return userList;
+    }
+
+    /**
+     * 单表分页查询
+     * @param pageIndex 页码
+     * @param pageRows  每页行数
+     * @return
+     */
+    public List<User> findAllPage(Integer pageIndex, Integer pageRows){
+        List<User> userList = dslContext.select(Tables.USER.fields())
+                .from(Tables.USER)
+                .limit((pageIndex-1)*pageRows, pageRows)
+                .fetchInto(User.class);
         return userList;
     }
 
@@ -32,6 +50,22 @@ public class UserDao extends BaseDao{
                 .innerJoin(Tables.ORG)
                 .on(Tables.USER.ORGID.equal(Tables.ORG.ID))
                 .where(Tables.ORG.ID.equal(orgId))
+                .fetchInto(User.class);
+
+        return userList;
+    }
+
+    /**
+     * 多表关联分页查询
+     * @return
+     */
+    public List<User> findByOrgIdPage(String orgId, Integer pageIndex, Integer pageRows){
+        List<User> userList = dslContext.select(Tables.USER.fields())
+                .from(Tables.USER)
+                .innerJoin(Tables.ORG)
+                .on(Tables.USER.ORGID.equal(Tables.ORG.ID))
+                .where(Tables.ORG.ID.equal(orgId))
+                .limit((pageIndex-1)*pageRows, pageRows)
                 .fetchInto(User.class);
 
         return userList;

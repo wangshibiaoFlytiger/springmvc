@@ -1,7 +1,10 @@
 package com.wangshibiao.springboot_jooqdemo.dao;
 
 import com.wangshibiao.springboot_jooqdemo.ConfigProperties;
+import com.wangshibiao.springboot_jooqdemo.jooq.generated.testdb.Tables;
 import com.wangshibiao.springboot_jooqdemo.jooq.generated.testdb.tables.pojos.User;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +28,32 @@ import static org.junit.Assert.*;
 public class UserDaoTest {
     @Autowired
     UserDao userDao;
+    @Autowired
+    ConfigProperties configProperties;
+
+    /**
+     * 最简单的jooq集成操作：
+     * 1. 不需要配置数据库连接池
+     * 2. 不需要jooq生成的dao类
+     * @throws Exception
+     */
+    @Test
+    public void testBasicJooq() throws Exception {
+        String userName = configProperties.getUsername();
+        String password = configProperties.getPassword();
+        String url = configProperties.getJdbcUrl();
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url, userName, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List<User> userList = DSL.using(conn, SQLDialect.MYSQL)
+                .select(Tables.USER.fields())
+                .from(Tables.USER)
+                .fetchInto(User.class);
+    }
 
     /**
      * 查询单表所有数据

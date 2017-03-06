@@ -21,4 +21,19 @@ public class UserDao extends BaseDao{
         List<User> userList = dslContext.select().from(Tables.USER).fetchInto(User.class);
         return userList;
     }
+
+    /**
+     * 多表关联查询
+     * @return
+     */
+    public List<User> findByOrgId(String orgId){
+        List<User> userList = dslContext.select(Tables.USER.fields())
+                .from(Tables.USER)
+                .innerJoin(Tables.ORG)
+                .on(Tables.USER.ORGID.equal(Tables.ORG.ID))
+                .where(Tables.ORG.ID.equal(orgId))
+                .fetchInto(User.class);
+
+        return userList;
+    }
 }

@@ -441,19 +441,22 @@ ext.lib = [
         "nexusPrivateLibrary"                              :"com.wangshibiao.gradle:scala:1.0-RELEASE",
         //大数据
         "spark"                              :"org.apache.spark:spark-core_2.11:2.1.0",
-        //spring boot
-        "spring-boot-starter-web"                              :"org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE",
-        "spring-boot-starter-test"                             :"org.springframework.boot:spring-boot-starter-test:1.5.1.RELEASE",
-        "spring-boot-starter-tomcat"                           :"org.springframework.boot:spring-boot-starter-tomcat:1.5.1.RELEASE",
-        "spring-boot-starter-data-jpa"                           :"org.springframework.boot:spring-boot-starter-data-jpa:1.5.1.RELEASE",
-        "spring-boot-starter-jdbc"                           :"org.springframework.boot:spring-boot-starter-jdbc:1.5.1.RELEASE",
+
+        //spring boot：若不明确指定各依赖包版本，则各依赖包的版本号会根据当前springboot版本自动配置
+        "spring-boot-starter-web"                              :"org.springframework.boot:spring-boot-starter-web",
+        "spring-boot-starter-test"                             :"org.springframework.boot:spring-boot-starter-test",
+        "spring-boot-starter-tomcat"                           :"org.springframework.boot:spring-boot-starter-tomcat",
+        "spring-boot-starter-data-jpa"                           :"org.springframework.boot:spring-boot-starter-data-jpa",
+        "spring-boot-starter-jdbc"                           :"org.springframework.boot:spring-boot-starter-jdbc",
+        "spring-boot-starter-jooq"                           :"org.springframework.boot:spring-boot-starter-jooq",
+        "spring-boot-configuration-processor"             :"org.springframework.boot:spring-boot-configuration-processor",
+
         "mysql-connector-java"                           :"mysql:mysql-connector-java:5.1.38",
+
         //querydsl
         "querydsl-jpa"                                    : "com.querydsl:querydsl-jpa:${versions.querydsl}",
         "querydsl-apt"                                      :"com.querydsl:querydsl-apt:${versions.querydsl}",
-        //jooq
-        "spring-boot-starter-jooq"                           :"org.springframework.boot:spring-boot-starter-jooq:1.5.1.RELEASE",
-        "spring-boot-configuration-processor"                           :"org.springframework.boot:spring-boot-configuration-processor:1.5.1.RELEASE",
+
 //        "":"::",
 //        "":"::",
 //        "":"::",

@@ -1,0 +1,21 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
+}
+
+ext {
+    //模块名
+    moduleName = "springboot-mybatisdemo";
+    version "${parent.version}"
+}
+
+dependencies {
+    compile(
+            lib."spring-boot-starter-web",
+            lib."mysql-connector-java",
+            lib."mybatis-spring-boot-starter",
+    )
+
+    testCompile(
+            lib."spring-boot-starter-test",
+    )
+}

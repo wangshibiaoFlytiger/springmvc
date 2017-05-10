@@ -6,6 +6,7 @@ import com.wangshibiao.springboot.mybatisdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,15 @@ public class UserController {
     public ResponseEntity<User> getUserById(HttpServletRequest request, HttpServletResponse response,
                                             @PathVariable String id){
         User user = userService.getById(id);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
+    public ResponseEntity<User> addUser(HttpServletRequest request, HttpServletResponse response,
+                                         @RequestBody User user){
+        userService.addUser(user);
+        Integer exceptionVar = 1/0;
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 }

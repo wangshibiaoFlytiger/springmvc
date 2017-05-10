@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +20,6 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Transactional  //启用事务
 public class UserControllerTest {
     @Autowired
     TestRestTemplate testRestTemplate;
@@ -31,5 +31,16 @@ public class UserControllerTest {
         Map paras = new HashMap<>();
         paras.put("id", "25");
         User user = testRestTemplate.getForObject(url, User.class, paras);
+    }
+
+    @Test
+    public void testAddUser() throws Exception {
+        User user = new User();
+        user.setId("ff");
+        user.setName("ff");
+        user.setAge(46);
+
+        String url = "/users";
+        User userRet = testRestTemplate.postForObject(url, user, User.class);
     }
 }

@@ -1,0 +1,14 @@
+ext {
+    //模块名
+    moduleName = "imoocAnnotation";
+    version "${parent.version}"
+}
+
+dependencies {
+    compile(
+    )
+
+    testCompile(
+
+    )
+}

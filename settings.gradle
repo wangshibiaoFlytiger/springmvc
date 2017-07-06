@@ -7,4 +7,5 @@ include 'sparkStudy'
 include 'springbootDemo'
 include 'springboot-jooqDemo'
 include 'springboot-mybatisDemo'
+include 'imoocAnnotation'
 

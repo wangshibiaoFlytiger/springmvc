@@ -21,7 +21,7 @@ sonarqube {
         //sonar.projectName、sonar.projectKey不配置，则会启用默认配置
         property "sonar.projectName", "sprintboot-mybatisDemo"
         property "sonar.projectKey", "sprintboot-mybatisDemo"
-        /*无需配置sonar.jacoco.itReportPath，sonarqube插件内置代码覆盖率检测
+        /*无需配置sonar.jacoco.itReportPath，通过测试得知“sonarqube插件会自动检测”
          property "sonar.jacoco.itReportPath", "../out/build/sprintboot-mybatisDemo/jacoco/jacocoTest.exec" */
     }
 }

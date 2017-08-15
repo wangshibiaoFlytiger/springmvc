@@ -2,6 +2,31 @@ plugins {
     id 'org.springframework.boot' version '1.5.2.RELEASE'
 }
 
+/*********** start 应用并配置sonarqube */
+plugins {
+    id "org.sonarqube" version "2.5"
+}
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.sources", "./src/main"
+        property "sonar.tests", "./src/test"
+
+        //sonar.projectName、sonar.projectKey不配置，则会启用默认配置
+        property "sonar.projectName", "sprintboot-mybatisDemo"
+        property "sonar.projectKey", "sprintboot-mybatisDemo"
+
+        property "sonar.jacoco.itReportPath", "../out/build/sprintboot-mybatisDemo/jacoco/jacocoTest.exec"
+    }
+}
+/*********** end 应用并配置sonarqube */
+
 ext {
     //模块名
     moduleName = "springboot-mybatisdemo";

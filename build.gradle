@@ -34,6 +34,28 @@ subprojects {
         buildDir "../out/build/${project.name}"
 
     }
+
+/********************start 应用并配置jacoco插件 */
+    apply plugin: "jacoco"
+
+    jacoco {
+        toolVersion = "0.7.6.201602180812"
+        reportsDir = file("$buildDir/customJacocoReportDir")
+    }
+    jacocoTestReport {
+        reports {
+            xml.enabled false
+            csv.enabled false
+            html.destination file("${buildDir}/jacocoHtml")
+        }
+    }
+    test {
+        jacoco {
+            append = false
+            destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+        }
+    }
+ /********************end 应用并配置jacoco插件 */
 //
 //    jar {
 //        manifest.mainAttributes(
@@ -82,11 +104,6 @@ subprojects {
             url "http://repo.springframework.org/libs-snapshot"
        }
        mavenCentral()*/
-    }
-
-
-    test{
-        exclude '**'
     }
 
     compileJava {

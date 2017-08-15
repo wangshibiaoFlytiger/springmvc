@@ -1,0 +1,22 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
+}
+
+ext {
+    //模块名
+    moduleName = "excelDemo";
+    version "${parent.version}"
+}
+
+dependencies {
+    compile(
+            lib."spring-boot-starter-web",
+            lib."mysql-connector-java",
+            lib."mybatis-spring-boot-starter",
+            lib."poi-excel-utils",
+    )
+
+    testCompile(
+            lib."spring-boot-starter-test",
+    )
+}

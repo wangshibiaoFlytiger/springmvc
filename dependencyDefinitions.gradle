@@ -458,6 +458,8 @@ ext.lib = [
         //querydsl
         "querydsl-jpa"                                    : "com.querydsl:querydsl-jpa:${versions.querydsl}",
         "querydsl-apt"                                      :"com.querydsl:querydsl-apt:${versions.querydsl}",
+        //excel
+        "poi-excel-utils"                                   :"org.hellojavaer:poi-excel-utils:2.0.0-beta",
 
 //        "":"::",
 //        "":"::",

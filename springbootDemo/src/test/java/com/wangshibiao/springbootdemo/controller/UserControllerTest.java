@@ -6,8 +6,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
@@ -97,9 +98,14 @@ public class UserControllerTest {
     @Test
     public void testFindAllUsers() throws Exception {
         String url = "http://localhost:8080/users";
+        //反序列化后的userList成员不是User对象，而是Map对象。因为getForObject不支持泛型对象的反序列化
         List<User> userList = restTemplate.getForObject(url, List.class);
-        //TODO:如下写法未通过
-        // ResponseEntity<List<User>> userListResponseEntity = restTemplate.getForObject(url, List.class);
+
+        //若接口返回的数据类型是泛型类，则使用exchange方法搭配ParameterizedTypeReference
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<?> requestEntity = new HttpEntity(headers);
+        ResponseEntity<List<User>> userListResponseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, new ParameterizedTypeReference<List<User>>(){});
     }
 
     /**
@@ -112,8 +118,13 @@ public class UserControllerTest {
         Map paras = new HashMap<>();
         paras.put("page", 2);
         paras.put("size", 3);
-//         TODO: 2017/2/22 如下写法未通过: 无法反序列化Page对象
-//        ResponseEntity<Page> userResponseEntity = restTemplate.getForEntity(url, Page.class, paras);
         ResponseEntity<String> userResponseEntity = restTemplate.getForEntity(url, String.class, paras);
+
+
+        //若接口返回的数据类型是泛型类，则使用exchange方法搭配ParameterizedTypeReference。此方法没有验证通过，原因：Page类没有默认构造函数
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<?> requestEntity = new HttpEntity(headers);
+        ResponseEntity<Page<User>> userListResponseEntity = restTemplate.exchange(url, HttpMethod.GET, requestEntity, new ParameterizedTypeReference<Page<User>>(){}, paras);
     }
 }

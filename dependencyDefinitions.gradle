@@ -461,6 +461,10 @@ ext.lib = [
         //excel
         "poi-excel-utils"                                   :"org.hellojavaer:poi-excel-utils:2.0.0-beta",
 
+        //redis
+        "spring-data-redis"                                : "org.springframework.data:spring-data-redis:1.8.7.RELEASE",
+        'jedis'                                             : 'redis.clients:jedis:2.9.0',
+
 //        "":"::",
 //        "":"::",
 //        "":"::",
